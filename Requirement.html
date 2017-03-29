@@ -77,7 +77,6 @@
                     </li>
                     <li type="circle">A systematic method of retrieving sets from the storage system</li>
                     <li type="circle">An efficient way to send data to Team 1</li>
-                    <li type="circle">Support for multiple databases</li>
                     <li type="circle">A fast method to transfer data</li>
                 </ol>
                 <p>
@@ -114,9 +113,9 @@
                         Set Engine
                         <br>
                         <br>
-                        <p>The set engine includes a database connector which connects to multiple databases,
-                            a set creation to create sets based on the data gathered from the databases,
-                            and a BlobPusher to store created sets into the Blob storage.</p>
+                        <p>The set engine includes a database connector which connects to a specified database. It reads
+                            data from the database and creates sets using information from the database. The Set Engine
+                            does not need to know the stucture of the database to craete the sets.</p>
                     </li>
 
                 </ol>
@@ -173,16 +172,6 @@
                 </p>
             </section>
 
-
-            <!--<p>-->
-            <!--Non-functional Requirements:-->
-            <!--</p>-->
-            <!--<ol>-->
-            <!--<li type="circle">Support for multiple databases</li>-->
-            <!--<li type="circle">A fast method to transfer data</li>-->
-            <!--<li type="circle">Protect personal data in the database</li>-->
-            <!--</ol>-->
-
             <section id="moscow">
                 <h2>MoSCoW Functional and Non-Functional Requirements</h2>
                 <p>
@@ -191,7 +180,8 @@
 
                     <tr>
                         <td>Must Have</td>
-                        <td>1. A database for storing sets<br>
+                        <td width="650">
+                            1. A database for storing sets<br>
                             2. The Set Engine must be able to generate sets without knowing the structure of a database.<br>
                             3. The Set Engine must be able to push sets to the set database in a structured format.<br>
                             4. The Set Engine must be able to split sets into further subsets.<br>
@@ -201,10 +191,33 @@
                             8. Libraries to read and write from the chosen storage system for the database.<br>
                             9. Set Engine, Chart Engine and REST Service to have a scalable design.
                         </td>
+                        <td width="150">
+                            Functional<br>
+                            Functional<br>
+                            Functional<br>
+                            Functional<br>
+                            Functional<br>
+                            Functional<br>
+                            Functional<br>
+                            Functional<br>
+                            Non-Functional
+                        </td>
+                        <td width="150">
+                            Complete<br>
+                            Complete<br>
+                            Complete<br>
+                            Complete<br>
+                            Complete<br>
+                            Complete<br>
+                            Complete<br>
+                            Complete<br>
+                            Complete
+                        </td>
                     </tr>
                     <tr>
                         <td>Should Have</td>
-                        <td>1. Create a prototype which connects to Team 1's front end to perform basic operations.<br>
+                        <td width="650">
+                            1. Create a prototype which connects to Team 1's front end to perform basic operations.<br>
                             2. Experiment with UDP as a method of data transfer.<br>
                             3. Experiment with ZIP as a method of data transfer.<br>
                             4. Experiment with any other methods to transport data to Team 1 effectively.<br>
@@ -212,23 +225,72 @@
                             6. The REST Service to support retrieval of ZIP files.<br>
                             7. The REST Service to support retrieval of Graph objects in JSON.
                         </td>
+                        <td width="150">
+                            Functional<br>
+                            Non-Functional<br>
+                            Non-Functional<br>
+                            Non-Functional<br>
+                            Non-Functional<br>
+                            Functional<br>
+                            Functional
+                        </td>
+                        <td width="150">
+                            Complete<br>
+                            Not Complete<br>
+                            Complete<br>
+                            Complete<br>
+                            Complete<br>
+                            Complete<br>
+                            Complete<br>
+                            Complete<br>
+                            Complete
+                        </td>
                     </tr>
                     <tr>
                         <td>Could Have</td>
-                        <td>1. Set Engine support for multiple databases.<br>
+                        <td width="650">
+                            1. Set Engine support for multiple databases.<br>
                             2. Set Engine to generate a map of the storage system.<br>
                             3. Set Engine to generate size tags for sets<br>
                             4. A tool to generate sample databases.<br>
                             5. Provide a documentation introducing how to use the API.<br>
                             6. Unit testing.
                         </td>
+                        <td width="150">
+                            Functional<br>
+                            Functional<br>
+                            Functional<br>
+                            Functional<br>
+                            Non-Functional<br>
+                            Functional<br>
+                        </td>
+                        <td width="150">
+                            Not Complete<br>
+                            Complete<br>
+                            Complete<br>
+                            Complete<br>
+                            Complete<br>
+                            Complete<br>
+                            Complete<br>
+                            Complete
+                        </td>
                     </tr>
                     <tr>
-                        <td>Won't Have</td>
+                        <td width="650">Won't Have</td>
                         <td>1. The project must not be developed using .NET 4.0 or below.<br>
                             2. The project must not use technology that is depreciated.<br>
                             3. The project must not use only one method of approach. It is an experimental project and
                             so a variety of approaches should be used.
+                        </td>
+                        <td width="150">
+                            Non-Functional<br>
+                            Non-Functional<br>
+                            Non-Functional
+                        </td>
+                        <td width="150">
+                            Not Complete<br>
+                            Not Complete<br>
+                            Not Complete
                         </td>
                     </tr>
                     </tbody>
