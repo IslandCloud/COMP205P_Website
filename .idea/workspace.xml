@@ -2,16 +2,23 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="096b0d1a-f038-4690-a728-2f79bb8d655a" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Sidebar.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/images/t4.png" afterPath="$PROJECT_DIR$/images/t4.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/HCI.html" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/images/pic01.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/images/pic02.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/images/pic03.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/images/pic04.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/images/pic05.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/images/pic06.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/images/pic07.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/images/pic08.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/images/pic09.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/images/pic10.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/images/pic11.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/images/t4.png" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Design.html" afterPath="$PROJECT_DIR$/Design.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Evaluation.html" afterPath="$PROJECT_DIR$/Evaluation.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Management.html" afterPath="$PROJECT_DIR$/Management.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Requirement.html" afterPath="$PROJECT_DIR$/Requirement.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Research.html" afterPath="$PROJECT_DIR$/Research.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Testing.html" afterPath="$PROJECT_DIR$/Testing.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.html" afterPath="$PROJECT_DIR$/index.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Sidebar.html" afterPath="$PROJECT_DIR$/Sidebar.html" />
     </list>
     <ignored path="COMP205P_Website.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -52,11 +59,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Management.html" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Management.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Management.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="3960">
-              <caret line="264" column="22" selection-start-line="264" selection-start-column="22" selection-end-line="264" selection-end-column="22" />
+            <state relative-caret-position="555">
+              <caret line="75" column="68" selection-start-line="75" selection-start-column="68" selection-end-line="75" selection-end-column="68" />
               <folding />
             </state>
           </provider>
@@ -82,30 +89,37 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Design.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Design.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Design.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="390">
-              <caret line="159" column="36" selection-start-line="159" selection-start-column="36" selection-end-line="159" selection-end-column="36" />
+            <state relative-caret-position="180">
+              <caret line="12" column="65" selection-start-line="12" selection-start-column="65" selection-end-line="12" selection-end-column="65" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Testing.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Testing.html">
+      <file leaf-file-name="HCI.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/HCI.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="600">
-              <caret line="75" column="22" selection-start-line="75" selection-start-column="22" selection-end-line="75" selection-end-column="22" />
+            <state relative-caret-position="720">
+              <caret line="96" column="59" selection-start-line="96" selection-start-column="59" selection-end-line="96" selection-end-column="59" />
               <folding />
             </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ganttChart.png" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ganttChart.png">
+          <provider selected="true" editor-type-id="images">
+            <state />
           </provider>
         </entry>
       </file>
       <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="270">
+            <state relative-caret-position="-135">
               <caret line="18" column="20" selection-start-line="18" selection-start-column="20" selection-end-line="18" selection-end-column="20" />
               <folding />
             </state>
@@ -115,8 +129,8 @@
       <file leaf-file-name="Sidebar.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Sidebar.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="345">
-              <caret line="64" column="70" selection-start-line="64" selection-start-column="70" selection-end-line="64" selection-end-column="70" />
+            <state relative-caret-position="225">
+              <caret line="63" column="74" selection-start-line="63" selection-start-column="74" selection-end-line="63" selection-end-column="74" />
               <folding />
             </state>
           </provider>
@@ -140,11 +154,12 @@
         <option value="$PROJECT_DIR$/index.html" />
         <option value="$PROJECT_DIR$/Research.html" />
         <option value="$PROJECT_DIR$/Testing.html" />
-        <option value="$PROJECT_DIR$/Management.html" />
         <option value="$PROJECT_DIR$/Evaluation.html" />
         <option value="$PROJECT_DIR$/Requirement.html" />
-        <option value="$PROJECT_DIR$/Sidebar.html" />
         <option value="$PROJECT_DIR$/Design.html" />
+        <option value="$PROJECT_DIR$/Sidebar.html" />
+        <option value="$PROJECT_DIR$/HCI.html" />
+        <option value="$PROJECT_DIR$/Management.html" />
       </list>
     </option>
   </component>
@@ -278,12 +293,12 @@
       <option name="presentableId" value="Default" />
       <updated>1490746336244</updated>
       <workItem from="1490746338460" duration="2670000" />
-      <workItem from="1491073351754" duration="11444000" />
+      <workItem from="1491073351754" duration="14683000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="14114000" />
+    <option name="totallyTimeSpent" value="17353000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
@@ -344,14 +359,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="18" column="20" selection-start-line="18" selection-start-column="20" selection-end-line="18" selection-end-column="20" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Evaluation.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1320">
@@ -364,14 +371,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-720">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Management.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3960">
-          <caret line="264" column="22" selection-start-line="264" selection-start-column="22" selection-end-line="264" selection-end-column="22" />
           <folding />
         </state>
       </provider>
@@ -394,16 +393,45 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Sidebar.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="345">
-          <caret line="64" column="70" selection-start-line="64" selection-start-column="70" selection-end-line="64" selection-end-column="70" />
+        <state relative-caret-position="225">
+          <caret line="63" column="74" selection-start-line="63" selection-start-column="74" selection-end-line="63" selection-end-column="74" />
           <folding />
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-135">
+          <caret line="18" column="20" selection-start-line="18" selection-start-column="20" selection-end-line="18" selection-end-column="20" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ganttChart.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/Design.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="390">
-          <caret line="159" column="36" selection-start-line="159" selection-start-column="36" selection-end-line="159" selection-end-column="36" />
+        <state relative-caret-position="180">
+          <caret line="12" column="65" selection-start-line="12" selection-start-column="65" selection-end-line="12" selection-end-column="65" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/HCI.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="720">
+          <caret line="96" column="59" selection-start-line="96" selection-start-column="59" selection-end-line="96" selection-end-column="59" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Management.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="555">
+          <caret line="75" column="68" selection-start-line="75" selection-start-column="68" selection-end-line="75" selection-end-column="68" />
           <folding />
         </state>
       </provider>

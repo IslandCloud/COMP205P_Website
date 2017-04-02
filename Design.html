@@ -96,11 +96,11 @@
                             Engine.</p>
                     </li>
                     <!--<li>-->
-                        <!--<p>Redundant Libraries<br><br>Over the course of many iterations of the system we made a handful-->
-                            <!--of changes to improve efficiency. Some of the programs that we phased out over the course of-->
-                            <!--the project was the parser for the Interpretation Engine, a Navigation library used during-->
-                            <!--early versions of the Set Engine and a neural network that was replaced with a decision tree-->
-                            <!--for the Set Engine.</p>-->
+                    <!--<p>Redundant Libraries<br><br>Over the course of many iterations of the system we made a handful-->
+                    <!--of changes to improve efficiency. Some of the programs that we phased out over the course of-->
+                    <!--the project was the parser for the Interpretation Engine, a Navigation library used during-->
+                    <!--early versions of the Set Engine and a neural network that was replaced with a decision tree-->
+                    <!--for the Set Engine.</p>-->
                     <!--</li>-->
                 </ol>
 
@@ -173,11 +173,47 @@
                 <!--Test:<br>-->
                 <!--<img src="images/DecisionTreeDesign/DecisionTree.png">-->
                 <!--<img src="images/DecisionTreeDesign/DecisionTree2.png">-->
+                <!--&lt;!&ndash;</p>&ndash;&gt;-->
+                <!--<p>-->
+                    <!--Final Version:<br>-->
+                    <!--<img src="images/Decision%20Tree.jpg" width="550" height="500">-->
                 <!--</p>-->
-                <p>
-                    Final Version:<br>
-                    <img src="images/Decision%20Tree.jpg" width="550" height="500">
-                </p>
+            </section>
+
+            <section id="seq-diagrams">
+                <h2>Sequence Diagrams</h2>
+
+                <p>During the development of our system we created several sequence diagrams. We used Creately to create
+                    the sequence diagrams.</p>
+
+                <div align="left">
+                    <p><b>Retrieving a Set</b></p>
+                    <img src="images/Sequence/SetSD.png" width="700" height="400">
+                    <p>When a GET requests arrives from the Front End it is received by the REST Controller. The
+                        Developer is encouraged to first retrieve the map of the sets so they know which sets they can
+                        call (Note that is is optional and recommended). The Front End then calls the Set which follows
+                        the same procedure but returns the full set.</p>
+                    <br><br>
+                </div>
+
+                <div align="left">
+                    <p><b>Retrieving a Chart</b></p>
+                    <img src="images/Sequence/ChartSD.png" width="800" height="400">
+                    <p>Alternatively the developer can call a Chart object using the API by specifying the set (A) which
+                        will return the chart for set A.</p>
+                    <br><br><br>
+                </div>
+                <div align="left">
+                    <p><b>Set Creation Process</b></p>
+                    <img src="images/Sequence/SetEngineSD.png" width="950" height="650">
+                    <p>When the Windows Task Scheduler initiates the Set Engine to start the Set Engine beings by
+                        retrieving all tables from the database it specified to read from. The Set Engine then attempts
+                        to generate sets for each table in the database and sub sets using its Decision Tree. The Set
+                        Engine immediately pushes sets to the Azure Blob after each set is created. When all tables have
+                        been checked the Set Engine pushes a map to the blob that contains the location of each set it
+                        has created. The Set Engine then emails the system administrator with details on the latest
+                        run.</p>
+                </div>
             </section>
 
             <section id="tool">
