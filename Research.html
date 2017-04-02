@@ -16,6 +16,18 @@
     <link rel="stylesheet" href="assets/css/ie9.css"/><![endif]-->
     <!--[if lte IE 8]>
     <link rel="stylesheet" href="assets/css/ie8.css"/><![endif]-->
+    <!-- Scripts -->
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/skel.min.js"></script>
+    <script src="assets/js/util.js"></script>
+    <!--[if lte IE 8]>
+    <script src="assets/js/ie/respond.min.js"></script><![endif]-->
+    <script src="assets/js/main.js"></script>
+    <script>
+        $(function(){
+            $("#sidebar").load("Sidebar.html");
+        });
+    </script>
 </head>
 <body>
 
@@ -84,15 +96,16 @@
                         <td align="center"><h4>Database on VM Server</h4></td>
                     </tr>
                     <tr>
-                        <td align="center">Good for storing large strings</td>
+                        <td align="center">Good for storing large strings<br>File structure<br>
+                            simple to navigate
+                        </td>
                         <td align="center">Faster than reading data from <br>
                             cloud based storage system<br>
                             (from speed tests)
                         </td>
                     </tr>
                     <tr>
-                        <td align="center">File structure<br>
-                            simple to navigate
+                        <td align="center">Easy to scale
                         </td>
                         <td align="center">Hard to scale and add new tables</td>
                     </tr>
@@ -283,31 +296,71 @@
                 <table>
                     <thead>
                     <tr class="success">
-                        <th>Content</th>
-                        <th>Resource</th>
+                        <th>Research Area</th>
+                        <th>Resources</th>
+                        <th>Links</th>
                     </tr>
                     </thead>
                     <tbody>
                     <tr>
-                        <td>Visual Studio Team Service</td>
-                        <td>https://www.visualstudio.com/team-services/</td>
+                        <td>Programming Language</td>
+                        <td width="900">Microsoft Website<br>Wikibooks</td>
+                        <td>https://msdn.microsoft.com/en-us/<br>https://en.wikibooks.org/wiki/F_Sharp_Programming/Basic_Concepts
+                        </td>
                     </tr>
                     <tr>
-                        <td>Azure Service</td>
-                        <td>https://azure.microsoft.com/</td>
+                        <td>Set Storage</td>
+                        <td width="900">Azure Website</td>
+                        <td>https://azure.microsoft.com/en-gb/services/storage/blobs/</td>
                     </tr>
                     <tr>
-                        <td>Microsoft Visual Studio</td>
-                        <td>https://www.visualstudio.com/</td>
+                        <td>Splitting Sets</td>
+                        <td width="900">Scikit-learn Docs<br>Machine Learning A Probabilistic Overview</td>
+                        <td>http://scikit-learn.org/stable/modules/tree.html<br>https://mitpress.mit.edu/books/machine-learning-0
+                        </td>
                     </tr>
                     <tr>
-                        <td>Website Sample</td>
-                        <td>https://startbootstrap.com/</td>
+                        <td>Data Transmission</td>
+                        <td width="900">Wikibooks<br>Personal Experiments</td>
+                        <td>https://en.wikibooks.org/wiki/Communication_Networks/TCP_and_UDP_Protocols<br>Refer To Testing
+                            Section
+                        </td>
                     </tr>
                     <tr>
-                        <td>Capita</td>
-                        <td>http://www.capita-sims.co.uk/</td>
+                        <td>Set Manipulation</td>
+                        <td width="900">Wikibooks<br>MSDN Docs</td>
+                        <td>https://msdn.microsoft.com/en-us/library/xfhwa508(v=vs.110).aspx</td>
                     </tr>
+                    <tr>
+                        <td>Efficiency</td>
+                        <td width="900">Concurrency in C# Cookbook</td>
+                        <td>http://stephencleary.com/book/</td>
+                    </tr>
+                    <tr>
+                        <td>Chart Generation</td>
+                        <td width="900">Personal Experiments</td>
+                        <td>Refer To Testing Section</td>
+                    </tr>
+                    <!--<tr>-->
+                    <!--<td>Visual Studio Team Service</td>-->
+                    <!--<td>https://www.visualstudio.com/team-services/</td>-->
+                    <!--</tr>-->
+                    <!--<tr>-->
+                    <!--<td>Azure Service</td>-->
+                    <!--<td>https://azure.microsoft.com/</td>-->
+                    <!--</tr>-->
+                    <!--<tr>-->
+                    <!--<td>Microsoft Visual Studio</td>-->
+                    <!--<td>https://www.visualstudio.com/</td>-->
+                    <!--</tr>-->
+                    <!--<tr>-->
+                    <!--<td>Website Sample</td>-->
+                    <!--<td>https://startbootstrap.com/</td>-->
+                    <!--</tr>-->
+                    <!--<tr>-->
+                    <!--<td>Capita</td>-->
+                    <!--<td>http://www.capita-sims.co.uk/</td>-->
+                    <!--</tr>-->
                     </tbody>
                 </table>
                 </p>
@@ -317,104 +370,10 @@
         </div>
     </div>
 
-    <!-- Sidebar -->
-    <div id="sidebar">
-        <div class="inner">
-
-            <!-- Menu -->
-            <nav id="menu">
-                <header class="major">
-                    <h2>Menu</h2>
-                </header>
-                <ul>
-                    <li><a href="index.html">Home</a></li>
-                    <li>
-                        <span class="opener">Background</span>
-                        <ul>
-                            <li><a href="Background.html#clients">Clients</a></li>
-                            <li><a href="Background.html#project">Project</a></li>
-                            <li><a href="Background.html#problem">Problem</a></li>
-                            <!--<li><hr></li>-->
-                            <!--<li><a href="project.html#log">Experiment Log</a></li>-->
-                            <!--<li><a href="project.html#biweekly_reports">Biweekly reports</a></li>-->
-                        </ul>
-                    </li>
-                    <li>
-                        <span class="opener">Requirement</span>
-                        <ul>
-                            <li><a href="Requirement.html#gather">Gathering Requirements</a></li>
-                            <li><a href="Requirement.html#initial">Initial Requirements</a></li>
-                            <li><a href="Requirement.html#final">Final Requirements</a></li>
-                            <li><a href="Requirement.html#moscow">MoSCoW List</a></li>
-                            <li><a href="Requirement.html#persona">Persona</a></li>
-                        </ul>
-                    </li>
-                    <li>
-                        <span class="opener">Research</span>
-                        <ul>
-                            <li><a href="Research.html#decisions">Decisions</a></li>
-                            <li><a href="Research.html#source">Sources</a></li>
-                        </ul>
-                    </li>
-                    <li>
-                        <span class="opener">Design</span>
-                        <ul>
-                            <li><a href="Design.html#class">Class Diagram</a></li>
-                            <li><a href="Design.html#pattern">Design Pattern</a></li>
-                            <li><a href="Design.html#tool">Development Tools</a></li>
-                            <li><a href="Design.html#implementation">Implementation</a></li>
-                        </ul>
-                    </li>
-                    <li>
-                        <span class="opener">Testing</span>
-                        <ul>
-                            <li><a href="Testing.html#unit&integration">Unit&Integration Testing</a></li>
-                            <li><a href="Testing.html#user">User Testing</a></li>
-                        </ul>
-                    </li>
-                    <li>
-                        <span class="opener">Evaluation</span>
-                        <ul>
-                            <li><a href="Evaluation.html#summary">Summary</a></li>
-                            <li><a href="Evaluation.html#evaluation">Evaluation</a></li>
-                            <li><a href="Evaluation.html#future">Future Work</a></li>
-                        </ul>
-                    </li>
-                    <li>
-                        <span class="opener">Management</span>
-                        <ul>
-                            <li><a href="Management.html#user">User Manual</a></li>
-                            <li><a href="Management.html#system">System Manual</a></li>
-                            <li><a href="Management.html#feedback">Feedback</a></li>
-                            <li><a href="Management.html#gantt">Gantt Chart</a></li>
-                            <li><a href="Management.html#reports">Bi-weekly Reports</a></li>
-                            <li><a href="Management.html#meeting">Meeting Minutes</a></li>
-                        </ul>
-                    </li>
-                    <li>
-                        <span class="opener">Source Code</span>
-                        <ul>
-                            <li><a href="https://github.com/fossildog117/silicon">Backend Technology</a></li>
-                            <li><a href="https://github.com/Lambrosz/COMP205P-Main">REST API</a></li>
-                        </ul>
-                    </li>
-
-                </ul>
-            </nav>
-
-
-        </div>
-    </div>
-
+    <div id="sidebar"></div>
 </div>
 
-<!-- Scripts -->
-<script src="assets/js/jquery.min.js"></script>
-<script src="assets/js/skel.min.js"></script>
-<script src="assets/js/util.js"></script>
-<!--[if lte IE 8]>
-<script src="assets/js/ie/respond.min.js"></script><![endif]-->
-<script src="assets/js/main.js"></script>
+
 
 </body>
 </html>

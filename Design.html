@@ -7,12 +7,27 @@
 <html>
 <head>
     <title>UCL Systems Engineering Project: Team 2</title>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-    <!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
-    <link rel="stylesheet" href="assets/css/main.css" />
-    <!--[if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css" /><![endif]-->
-    <!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no"/>
+    <!--[if lte IE 8]>
+    <script src="assets/js/ie/html5shiv.js"></script><![endif]-->
+    <link rel="stylesheet" href="assets/css/main.css"/>
+    <!--[if lte IE 9]>
+    <link rel="stylesheet" href="assets/css/ie9.css"/><![endif]-->
+    <!--[if lte IE 8]>
+    <link rel="stylesheet" href="assets/css/ie8.css"/><![endif]-->
+    <!-- Scripts -->
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/skel.min.js"></script>
+    <script src="assets/js/util.js"></script>
+    <!--[if lte IE 8]>
+    <script src="assets/js/ie/respond.min.js"></script><![endif]-->
+    <script src="assets/js/main.js"></script>
+    <script>
+        $(function () {
+            $("#sidebar").load("Sidebar.html");
+        });
+    </script>
 </head>
 <body>
 
@@ -37,42 +52,127 @@
                 </div>
             </section>
 
+            <section id="systemArchitecture">
+                <h2>System Architecture</h2>
+
+                <p>
+                    The system is comprised of three major components. The REST API, the Chart Engine and the Set
+                    Engine.
+                    Additionally there are several important subcomponents including general purpose Readers, Writers
+                    and a number of helper classes to help facilitate the running of each major component. Data is
+                    stored in a blob on Azure.</p>
+                <ol>
+                    <li>
+                        <p>The Set Engine<br><br>This program generates sets and writes the sets to the Azure blob. The
+                            Set
+                            Engine does not need to know the structure of the database in order to generates the sets
+                            but splits
+                            tables into columns and generates sets based on the column data. The Set Engine should be
+                            run
+                            automatically a weekly basis using the Windows Task Scheduler to ensure data on the blob is
+                            up to date.
+                            After
+                            every run of the Set Engine results are emailed to whomever the user desires.</p>
+                    </li>
+                    <li>
+                        <p>The Chart Engine<br><br>The Chart Engine is a general purpose program for generating charts.
+                            The idea originally came from the fact that Team 1 were generating the charts based on our
+                            data. This can be very slow as we will need to send many sets to Team 1 in order for them to
+                            generate charts. If we instead move the Chart Engine to the backend then the charts can be
+                            generated much faster because no sets will be required to be sent to the frontend which can
+                            be
+                            very slow depending on the size of the set.</p>
+                    </li>
+                    <li>
+                        <p>The REST API<br><br>The REST API... </p>
+                    </li>
+                    <li>
+                        <p>Supporting Libraries<br><br>During the development of the three programs above we developed
+                            several libraries that were regularly used throughout the course of the project. The Blob
+                            Reader and Writer classes were the main classes that were used most extensively. Some
+                            additional important libraries include a Graph Retriever that is used to link the REST API
+                            to the Chart Engine, a database generation tool that we created to generate sample databases
+                            and a simple decision tree that we used to classify data types which was needed for the Set
+                            Engine.</p>
+                    </li>
+                    <!--<li>-->
+                        <!--<p>Redundant Libraries<br><br>Over the course of many iterations of the system we made a handful-->
+                            <!--of changes to improve efficiency. Some of the programs that we phased out over the course of-->
+                            <!--the project was the parser for the Interpretation Engine, a Navigation library used during-->
+                            <!--early versions of the Set Engine and a neural network that was replaced with a decision tree-->
+                            <!--for the Set Engine.</p>-->
+                    <!--</li>-->
+                </ol>
+
+
+                <a href="Requirement.html#final">See Final Requirements section for diagram</a>
+
+
+            </section>
+
             <section id="class">
-                <h2>Class Diagram</h2>
-                <h3 align="center">UML diagram for the Chart Engine</h3>
-                <p>
-                    <img src="images/class%20diagram.png" width="800" height="550" align="middle">
-                </p>
+                <h2>Class Diagrams</h2>
                 <br><br>
-                <h3 align="left">
-                    UML Diagram for Interpretation Engine
-                </h3>
-                <p>
-                    <img src="images/3.png" width="400" height="250" align="middle">
-                </p>
+                <div align="left">
+                    <h3>UML diagram for the Chart Engine</h3>
+                    <p>
+                        <img src="images/class%20diagram.png" width="800" height="550">
+                    </p>
+                </div>
                 <br><br>
-                <h3 align="left">
-                    UML Diagram for Set Engine
-                </h3>
-                <p>
-                    <img src="images/4.png" width="400" height="250" align="middle">
-                </p>
+                <div align="left">
+                    <h3>
+                        UML Diagram for Interpretation Engine
+                    </h3>
+                    <p>
+                        <img src="images/3.png" width="500" height="350">
+                    </p>
+                </div>
+                <br><br>
+                <div align="left">
+                    <h3>
+                        UML Diagram for Set Engine
+                    </h3>
+                    <p>
+                        <img src="images/4.png" width="500" height="300">
+                    </p>
+                </div>
             </section>
 
             <section id="pattern">
                 <h2>Design Pattern</h2>
                 <h3>
-                    Decision Tree Design: Singleton Ensure a class has only one instance, and provide a global point of access to it.
+                    Decision Tree Design: Singleton Ensure a class has only one instance, and provide a global point of
+                    access to it.
                 </h3>
+
+                <ol>
+                    <li>
+                        <b>Singleton</b>
+                    </li>
+                    <li>
+                        <b>Model View Controller</b>
+                    </li>
+                    <li>
+                        <b>Fork/Join Pattern</b>
+                    </li>
+                    <li>
+                        <b>Optionals For Testing Complex Functions</b>
+                    </li>
+                    <li>
+                        <b>Information Tagging</b>
+                    </li>
+                </ol>
+
                 <!--<p>-->
-                    <!--Sketch:<br>-->
-                    <!--<img src="images/DecisionTreeDesign/DecisionTreeDesign-1.png" width="600" height="500">-->
-                    <!--<img src="images/DecisionTreeDesign/DecisionTreeDesign-2.png" width="500" height="500">-->
+                <!--Sketch:<br>-->
+                <!--<img src="images/DecisionTreeDesign/DecisionTreeDesign-1.png" width="600" height="500">-->
+                <!--<img src="images/DecisionTreeDesign/DecisionTreeDesign-2.png" width="500" height="500">-->
                 <!--</p>-->
                 <!--<p>-->
-                    <!--Test:<br>-->
-                    <!--<img src="images/DecisionTreeDesign/DecisionTree.png">-->
-                    <!--<img src="images/DecisionTreeDesign/DecisionTree2.png">-->
+                <!--Test:<br>-->
+                <!--<img src="images/DecisionTreeDesign/DecisionTree.png">-->
+                <!--<img src="images/DecisionTreeDesign/DecisionTree2.png">-->
                 <!--</p>-->
                 <p>
                     Final Version:<br>
@@ -101,104 +201,11 @@
         </div>
     </div>
 
-    <!-- Sidebar -->
-    <div id="sidebar">
-        <div class="inner">
+    <div id="sidebar"></div>
 
-            <!-- Menu -->
-            <nav id="menu">
-                <header class="major">
-                    <h2>Menu</h2>
-                </header>
-                <ul>
-                    <li><a href="index.html">Home</a></li>
-                    <li>
-                        <span class="opener">Background</span>
-                        <ul>
-                            <li><a href="Background.html#clients">Clients</a></li>
-                            <li><a href="Background.html#project">Project</a></li>
-                            <li><a href="Background.html#problem">Problem</a></li>
-
-                            <!--<li><hr></li>-->
-                            <!--<li><a href="project.html#log">Experiment Log</a></li>-->
-                            <!--<li><a href="project.html#biweekly_reports">Biweekly reports</a></li>-->
-                        </ul>
-                    </li>
-                    <li>
-                        <span class="opener">Requirement</span>
-                        <ul>
-                            <li><a href="Requirement.html#gather">Gathering Requirements</a></li>
-                            <li><a href="Requirement.html#initial">Initial Requirements</a></li>
-                            <li><a href="Requirement.html#final">Final Requirements</a></li>
-                            <li><a href="Requirement.html#moscow">MoSCoW List</a></li>
-                            <li><a href="Requirement.html#persona">Persona</a></li>
-                        </ul>
-                    </li>
-                    <li>
-                        <span class="opener">Research</span>
-                        <ul>
-                            <li><a href="Research.html#decisions">Decisions</a></li>
-                            <li><a href="Research.html#source">Sources</a></li>
-                        </ul>
-                    </li>
-                    <li>
-                        <span class="opener">Design</span>
-                        <ul>
-                            <li><a href="Design.html#class">Class Diagram</a></li>
-                            <li><a href="Design.html#pattern">Design Pattern</a></li>
-                            <li><a href="Design.html#tool">Development Tools</a></li>
-                            <li><a href="Design.html#implementation">Implementation</a></li>
-                        </ul>
-                    </li>
-                    <li>
-                        <span class="opener">Testing</span>
-                        <ul>
-                            <li><a href="Testing.html#unit&integration">Unit&Integration Testing</a> </li>
-                            <li><a href="Testing.html#user">User Testing</a> </li>
-                        </ul>
-                    </li>
-                    <li>
-                        <span class="opener">Evaluation</span>
-                        <ul>
-                            <li><a href="Evaluation.html#summary">Summary</a> </li>
-                            <li><a href="Evaluation.html#evaluation">Evaluation</a> </li>
-                            <li><a href="Evaluation.html#future">Future Work</a> </li>
-                        </ul>
-                    </li>
-                    <li>
-                        <span class="opener">Management</span>
-                        <ul>
-                            <li><a href="Management.html#user">User Manual</a></li>
-                            <li><a href="Management.html#system">System Manual</a></li>
-                            <li><a href="Management.html#feedback">Feedback</a> </li>
-                            <li><a href="Management.html#gantt">Gantt Chart</a> </li>
-                            <li><a href="Management.html#reports">Bi-weekly Reports</a></li>
-                            <li><a href="Management.html#meeting">Meeting Minutes</a></li>
-                        </ul>
-                    </li>
-                    <li>
-                        <span class="opener">Source Code</span>
-                        <ul>
-                            <li><a href="https://github.com/fossildog117/silicon">Backend Technology</a> </li>
-                            <li><a href="https://github.com/Lambrosz/COMP205P-Main">REST API</a> </li>
-                        </ul>
-                    </li>
-
-                </ul>
-            </nav>
-
-
-        </div>
-    </div>
 
 </div>
 
-<!-- Scripts -->
-<script src="assets/js/jquery.min.js"></script>
-<script src="assets/js/skel.min.js"></script>
-<script src="assets/js/util.js"></script>
-<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
-<script src="assets/js/main.js"></script>
 
 </body>
 </html>

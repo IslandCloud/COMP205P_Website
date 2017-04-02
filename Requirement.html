@@ -16,6 +16,19 @@
     <link rel="stylesheet" href="assets/css/ie9.css"/><![endif]-->
     <!--[if lte IE 8]>
     <link rel="stylesheet" href="assets/css/ie8.css"/><![endif]-->
+
+    <!-- Scripts -->
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/skel.min.js"></script>
+    <script src="assets/js/util.js"></script>
+    <!--[if lte IE 8]>
+    <script src="assets/js/ie/respond.min.js"></script><![endif]-->
+    <script src="assets/js/main.js"></script>
+    <script>
+        $(function(){
+            $("#sidebar").load("Sidebar.html");
+        });
+    </script>
 </head>
 <body>
 
@@ -123,7 +136,16 @@
                 <p>
                     <img src="images/initial.png" width="700" height="500" align="middle"><br>
                     Figure 1: Schematic diagram to show the overview of our proposed system
+                </p>
 
+                <h3>User Friendliness</h3>
+                <p>We also carefully considered how the user will interact with our API. One of the major drawbacks to
+                    APIs is the learning curve required to use the API. We therefore decided to make a simple three step
+                    process (click-copy-paste) for the user so they can get started with the API as soon as
+                    possible. (See Figure 2) </p>
+                <p>
+                    <img src="images/Storyboard.png" width="1000" height="350" align="middle"><br>
+                    Figure 2: Storyboard showing the three step process to get started with the API.
                 </p>
 
             </section>
@@ -168,7 +190,7 @@
                 <img src="images/final.png" width="800" height="550" align="middle">
                 <br>
                 <p>
-                    Figure 2: Schematic diagram to show the overview of the final system
+                    Figure 3: Schematic diagram to show the overview of the final system
                 </p>
             </section>
 
@@ -180,11 +202,11 @@
 
                     <tr>
                         <td>Must Have</td>
-                        <td width="650">
+                        <td width="750">
                             1. A database for storing sets<br>
-                            2. The Set Engine must be able to generate sets without knowing the structure of a database.<br>
-                            3. The Set Engine must be able to push sets to the set database in a structured format.<br>
-                            4. The Set Engine must be able to split sets into further subsets.<br>
+                            2. The Set Engine can generate sets without knowing the structure of a database.<br>
+                            3. The Set Engine can push sets to the set database in a structured format.<br>
+                            4. The Set Engine can split sets into further subsets.<br>
                             5. The REST Service must allow Team 1 to retrieve information for each set.<br>
                             6. The REST Controllers must be able to retrieve any set in the set database.<br>
                             7. A Chart Engine to generate charts in C#.<br>
@@ -216,8 +238,8 @@
                     </tr>
                     <tr>
                         <td>Should Have</td>
-                        <td width="650">
-                            1. Create a prototype which connects to Team 1's front end to perform basic operations.<br>
+                        <td width="750">
+                            1. API allows Team 1 to perform basic requests.<br>
                             2. Experiment with UDP as a method of data transfer.<br>
                             3. Experiment with ZIP as a method of data transfer.<br>
                             4. Experiment with any other methods to transport data to Team 1 effectively.<br>
@@ -246,7 +268,7 @@
                     </tr>
                     <tr>
                         <td>Could Have</td>
-                        <td width="650">
+                        <td width="750">
                             1. Set Engine support for multiple databases.<br>
                             2. Set Engine to generate a map of the storage system.<br>
                             3. Set Engine to generate size tags for sets<br>
@@ -273,7 +295,7 @@
                     </tr>
                     <tr>
                         <td width=>Won't Have</td>
-                        <td width="650">1. The project must not be developed using .NET 4.0 or below.<br>
+                        <td width="750">1. The project must not be developed using .NET 4.0 or below.<br>
                             2. The project must not use technology that is depreciated.<br>
                             3. The project must not use only one method of approach. It is an experimental project and
                             so a variety of approaches should be used.
@@ -309,106 +331,10 @@
 
         </div>
     </div>
+    <div id="sidebar"></div>
 
-    <!-- Sidebar -->
-    <div id="sidebar">
-        <div class="inner">
-
-            <!-- Menu -->
-            <nav id="menu">
-                <header class="major">
-                    <h2>Menu</h2>
-                </header>
-                <ul>
-                    <li><a href="index.html">Home</a></li>
-                    <li>
-                        <span class="opener">Background</span>
-                        <ul>
-                            <li><a href="Background.html#clients">Clients</a></li>
-                            <li><a href="Background.html#project">Project</a></li>
-                            <li><a href="Background.html#problem">Problem</a></li>
-                            <!--<li><hr></li>-->
-                            <!--<li><a href="project.html#log">Experiment Log</a></li>-->
-                            <!--<li><a href="project.html#biweekly_reports">Biweekly reports</a></li>-->
-                        </ul>
-                    </li>
-                    <li>
-                        <span class="opener">Requirement</span>
-                        <ul>
-                            <li><a href="Requirement.html#gather">Gathering Requirements</a></li>
-                            <li><a href="Requirement.html#initial">Initial Requirements</a></li>
-                            <li><a href="Requirement.html#final">Final Requirements</a></li>
-                            <li><a href="Requirement.html#moscow">MoSCoW List</a></li>
-                            <li><a href="Requirement.html#persona">Persona</a></li>
-                            <!--<li><a href="Requirement.html#user">User Case</a> </li>-->
-                        </ul>
-                    </li>
-                    <li>
-                        <span class="opener">Research</span>
-                        <ul>
-                            <li><a href="Research.html#decisions">Decisions</a></li>
-                            <li><a href="Research.html#source">Sources</a></li>
-                        </ul>
-                    </li>
-                    <li>
-                        <span class="opener">Design</span>
-                        <ul>
-                            <li><a href="Design.html#class">Class Diagram</a></li>
-                            <li><a href="Design.html#pattern">Design Pattern</a></li>
-                            <li><a href="Design.html#tool">Development Tools</a></li>
-                            <li><a href="Design.html#implementation">Implementation</a></li>
-                        </ul>
-                    </li>
-                    <li>
-                        <span class="opener">Testing</span>
-                        <ul>
-                            <li><a href="Testing.html#unit&integration">Unit&Integration Testing</a></li>
-                            <li><a href="Testing.html#user">User Testing</a></li>
-                        </ul>
-                    </li>
-                    <li>
-                        <span class="opener">Evaluation</span>
-                        <ul>
-                            <li><a href="Evaluation.html#summary">Summary</a></li>
-                            <li><a href="Evaluation.html#evaluation">Evaluation</a></li>
-                            <li><a href="Evaluation.html#future">Future Work</a></li>
-                        </ul>
-                    </li>
-                    <li>
-                        <span class="opener">Management</span>
-                        <ul>
-                            <li><a href="Management.html#user">User Manual</a></li>
-                            <li><a href="Management.html#system">System Manual</a></li>
-                            <li><a href="Management.html#feedback">Feedback</a></li>
-                            <li><a href="Management.html#gantt">Gantt Chart</a></li>
-                            <li><a href="Management.html#reports">Bi-weekly Reports</a></li>
-                            <li><a href="Management.html#meeting">Meeting Minutes</a></li>
-                        </ul>
-                    </li>
-                    <li>
-                        <span class="opener">Source Code</span>
-                        <ul>
-                            <li><a href="https://github.com/fossildog117/silicon">Backend Technology</a></li>
-                            <li><a href="https://github.com/Lambrosz/COMP205P-Main">REST API</a></li>
-                        </ul>
-                    </li>
-
-                </ul>
-            </nav>
-
-
-        </div>
-    </div>
 
 </div>
-
-<!-- Scripts -->
-<script src="assets/js/jquery.min.js"></script>
-<script src="assets/js/skel.min.js"></script>
-<script src="assets/js/util.js"></script>
-<!--[if lte IE 8]>
-<script src="assets/js/ie/respond.min.js"></script><![endif]-->
-<script src="assets/js/main.js"></script>
 
 </body>
 </html>
