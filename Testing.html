@@ -7,12 +7,15 @@
 <html>
 <head>
     <title>UCL Systems Engineering Project: Team 2</title>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-    <!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
-    <link rel="stylesheet" href="assets/css/main.css" />
-    <!--[if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css" /><![endif]-->
-    <!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no"/>
+    <!--[if lte IE 8]>
+    <script src="assets/js/ie/html5shiv.js"></script><![endif]-->
+    <link rel="stylesheet" href="assets/css/main.css"/>
+    <!--[if lte IE 9]>
+    <link rel="stylesheet" href="assets/css/ie9.css"/><![endif]-->
+    <!--[if lte IE 8]>
+    <link rel="stylesheet" href="assets/css/ie8.css"/><![endif]-->
     <!-- Scripts -->
     <script src="assets/js/jquery.min.js"></script>
     <script src="assets/js/skel.min.js"></script>
@@ -21,7 +24,7 @@
     <script src="assets/js/ie/respond.min.js"></script><![endif]-->
     <script src="assets/js/main.js"></script>
     <script>
-        $(function(){
+        $(function () {
             $("#sidebar1").load("Sidebar.html");
         });
     </script>
@@ -49,17 +52,78 @@
                 </div>
             </section>
 
-            <section id="unit&integration">
-                <h2>Unit&Integration Testing</h2>
-                <p>We have run several speed tests including reading data from different resources, generating chart graphs in front-end and back-end, and so on. Below are the results we got from the speed tests.</p>
+            <section id="SpeedTests">
+                <h2>Speed Tests</h2>
+                <p>We have run several speed tests including reading data from different resources, generating chart
+                    graphs in front-end and back-end, and so on. Below are the results we got from the speed tests.</p>
                 <p>
-                    <img src="images/t1.png" width="700" height="450">
-                    <img src="images/t2.png" width="700" height="450">
-                    <img src="images/t3.png" width="700" height="450">
-                    <img src="images/t4.png" width="700" height="450">
+                    <b>Some terminology</b>
+                <ol>
+                    <li>Random Sample: The random sample with a scalar is a method where we randomly select 1000 samples
+                        and send this to the front end along with a scalar multiple so the number can be multiplied back
+                        up to the real set.
+                    </li>
+                    <li>
+                        JSON Splitting: This is where we split the string with delimiters and count the
+                        resulting array. It happens to be the size of the set.
+                    </li>
+                    <li>Dictionary Size: This is the value of parsing the JSON
+                        string into a Dictionary Object and returning the size of the Dictionary.
+                    </li>
 
+                </ol>
+                <div style="width: 850px" align="middle">
+                    <div style="width: 451px" align="middle">
+                        <figure>
+                            <img src="images/t2.png" width="450">
+                            <figcaption>Figure 1: Time to generate charts using different methods against a database on
+                                the
+                                local machine.
+                            </figcaption>
+                        </figure>
+                        <figure>
+                            <img src="images/t3.png" width="450">
+                            <figcaption>Figure 2: Time to generate charts using different methods against the Azure
+                                blob before introduction of storing set sizes.
+                            </figcaption>
+                        </figure>
+                        <figure>
+                            <img src="images/t4.png" width="450">
+                            <figcaption>Figure 3: Time to retrieve a set against the Azure blob using different
+                                methods.
+                            </figcaption>
+                            <p></p>
+                        </figure>
+                        <figure>
+                            <img src="images/t1.png" width="450">
+                            <figcaption>Figure 4: Time comparison between Azure Blob and a local database using JSON
+                                splitting.
+                            </figcaption>
+                        </figure>
+                        <figure>
+                            <img src="images/TcpUdpTest.png" width="450">
+                            <figcaption>Figure 5: Time comparison between TCP and UDP.</figcaption>
+                        </figure>
+                    </div>
+                </div>
                 </p>
             </section>
+
+
+            <section id="UnitTests">
+                <h2>Unit Tests</h2>
+                <p>We have created a few unit tests for the Set Engine. This is done by adding an optional parameter to
+                    the GenerateSets() function in the Set Engine which puts the function into test mode. The Set Engine
+                    then reads from a Test Database and the output is tested against a set of known output sets by
+                    calling the CompareSets(TestSet, PredictedSet) function where 'TestSet' is the answer and
+                    'PredictedSet' is the set generated by the Set Engine. Every single item in the Test and Predicted Set must match in order for the unit test to pass.</p>
+
+                <figure>
+                    <img src="images/UnitTest.png" width="900">
+                    <figcaption>Figure 6: Screen shot showing unit tests being run on the Set Engine.</figcaption>
+                </figure>
+            </section>
+
 
             <section id="user">
                 <h2>User Testing</h2>
@@ -67,7 +131,6 @@
                     test cases, feedback from clients and testers
                 </p>
             </section>
-
 
 
         </div>

@@ -56,97 +56,124 @@
                 <h2>Summary</h2>
 
                 <div>
-                    <h3>Sprint 1</h3>
+                    <h3>Known Bugs</h3>
+                    <div>
+                        <b>Set Engine</b>
+                        <p></p>
+                        <ol style="list-style-type:disc">
+                            <li>
+                                May produce irrelevant sets for tables with multiple primary keys or no primary keys
+                            </li>
+                            <li>
+                                Testing not yet optimal
+                            </li>
+                            <li>
+                                Everything happens in one GenerateSets() function, decentralising this method could help
+                                improve testing and scalability
+                            </li>
+                        </ol>
+                    </div>
+                    <div>
+                        <b>Reader/Writer Libraries</b>
+                        <p></p>
+                        <ol style="list-style-type:disc">
+                            <li>
+                                Problem with reading sets in a particular way
+                            </li>
+                            <li>
+                                Line 98 of the reader file cannot directly call GetJSON() method but must parse string
+                                manually. Solution currently unknown
+                            </li>
+                        </ol>
+                    </div>
+                </div>
+
+                <hr size="40">
+                <div>
+                    <h3>Summary of progress</h3><br>
+                    <p>We adopted an Agile approach to project development. Each sprint lasted 2 weeks and was
+                        synced with each bi-weekly report. The weights indicate the difficulty and importance of the
+                        task. We used the Fibonacci numbers to separate the weights. A maximum of three tasks could be
+                        assigned the same weight unless there is an exceptionally high number of tasks in the sprint
+                        backlog for a given sprint.</p>
+                    <h4>Sprint 1</h4>
                     <img src="images/SprintBacklog/Sprint%20backlog-1.png" width="700">
 
-                    <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered
-                        alteration in some form, by injected humour, or randomised words which don't look even slightly
-                        believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't
-                        anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the
-                        Internet tend to repeat predefined chunks as necessary, making this the first true generator on
-                        the Internet. It uses a dictionary of over 200 Latin words, combined with a handful of model
-                        sentence structures, to generate Lorem Ipsum which looks reasonable. The generated Lorem Ipsum
-                        is therefore always free from repetition, injected humour, or non-characteristic words etc.
+                    <p>As we were adopting an Agile approach to the project we decided to accomplish the most important
+                        tasks within the first sprint. This meant creating MVPs of as many 'Must Have' requirements as
+                        possible hence the large number of 'Must Have' requirements completed during the first sprint.
+                        We managed to complete these tasks on time and evaluate the work for the next sprint.
                     </p>
                     <hr size="30">
                 </div>
 
                 <div>
-                    <h3>Sprint 2</h3>
-                    <img src="images/SprintBacklog/Sprint%20backlog-2.png" width="700" >
+                    <h4>Sprint 2</h4>
+                    <img src="images/SprintBacklog/Sprint%20backlog-2.png" width="700">
 
-                    <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered
-                        alteration in some form, by injected humour, or randomised words which don't look even slightly
-                        believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't
-                        anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the
-                        Internet tend to repeat predefined chunks as necessary, making this the first true generator on
-                        the Internet. It uses a dictionary of over 200 Latin words, combined with a handful of model
-                        sentence structures, to generate Lorem Ipsum which looks reasonable. The generated Lorem Ipsum
-                        is therefore always free from repetition, injected humour, or non-characteristic words etc.
+                    <p>During this sprint we aimed to optimise the system as much as possible given the feedback from
+                        the client. We also decided to tackle the core problems to make the system to improve the
+                        scalability of the system. We made improvements to the core components including the Set Engine,
+                        Interpretation Engine and the REST Service.
                     </p>
                     <hr size="30">
                 </div>
 
                 <div>
-                    <h3>Sprint 3</h3>
+                    <h4>Sprint 3</h4>
                     <img src="images/SprintBacklog/Sprint%20backlog-3.png" width="700">
 
-                    <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered
-                        alteration in some form, by injected humour, or randomised words which don't look even slightly
-                        believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't
-                        anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the
-                        Internet tend to repeat predefined chunks as necessary, making this the first true generator on
-                        the Internet. It uses a dictionary of over 200 Latin words, combined with a handful of model
-                        sentence structures, to generate Lorem Ipsum which looks reasonable. The generated Lorem Ipsum
-                        is therefore always free from repetition, injected humour, or non-characteristic words etc.
+                    <p> Our project workload during the third sprint was less than usual due to Reading week and
+                        Scenario
+                        Week. We managed to fix the REST endpoints and integrate the Interpretation Engine to read files
+                        from the Azure Blob and send these files to Team 1 via the REST API. We also wrote a basic
+                        neural network to classify data types which was going to be used for the Set Engine to
+                        differentiate sets.
                     </p>
                     <hr size="30">
                 </div>
 
                 <div>
-                    <h3>Sprint 4</h3>
+                    <h4>Sprint 4</h4>
                     <img src="images/SprintBacklog/Sprint%20backlog-4.png" width="700">
 
-                    <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered
-                        alteration in some form, by injected humour, or randomised words which don't look even slightly
-                        believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't
-                        anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the
-                        Internet tend to repeat predefined chunks as necessary, making this the first true generator on
-                        the Internet. It uses a dictionary of over 200 Latin words, combined with a handful of model
-                        sentence structures, to generate Lorem Ipsum which looks reasonable. The generated Lorem Ipsum
-                        is therefore always free from repetition, injected humour, or non-characteristic words etc.
+                    <p>During the fourth sprint we further optimised our system after feedback from the client. We made
+                        additional upgrades to the Set Engine with
+                        a decision tree to create a greater variety of sets. In a pivot maneuver we made the decision to
+                        remove the Interpretation Engine and integrate its parser with the REST service into one system.
+                        We decided that it would be more efficient for charts to be created in the backend for the
+                        reasons that sets can be loaded almost instantaneously and C# is disproportionately faster than
+                        Javascript. To cater to this we created the Chart Engine that generates Chart Objects given a
+                        REST request.
+                        We also created a new API website.
                     </p>
                     <hr size="30">
                 </div>
 
                 <div>
-                    <h3>Sprint 5</h3>
+                    <h4>Sprint 5</h4>
                     <img src="images/SprintBacklog/Sprint%20backlog-5.png" width="700">
 
-                    <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered
-                        alteration in some form, by injected humour, or randomised words which don't look even slightly
-                        believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't
-                        anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the
-                        Internet tend to repeat predefined chunks as necessary, making this the first true generator on
-                        the Internet. It uses a dictionary of over 200 Latin words, combined with a handful of model
-                        sentence structures, to generate Lorem Ipsum which looks reasonable. The generated Lorem Ipsum
-                        is therefore always free from repetition, injected humour, or non-characteristic words etc.
+                    <p>During the fifth sprint we made significant improvements to the blob storage system by upgrading
+                        the set engine to produce a more efficient set structure. We suffered a major data loss but
+                        managed to restore the data by creating a new database generation tool. We made further
+                        improvements to the chart engine improving scalability as well as making significant updates to
+                        the REST API including integration of the latest chart engine. We also made a lot of
+                        optimisations by testing a variety of methods and choosing the most efficient solutions. We have
+                        also explored additional approaches to the permanent storage of sets, and have made progress
+                        towards integration with Team 1.
                     </p>
                     <hr size="30">
                 </div>
 
                 <div>
-                    <h3>Sprint 6</h3>
+                    <h4>Sprint 6</h4>
                     <img src="images/SprintBacklog/Sprint%20backlog-6.png" width="700">
-
-                    <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered
-                        alteration in some form, by injected humour, or randomised words which don't look even slightly
-                        believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't
-                        anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the
-                        Internet tend to repeat predefined chunks as necessary, making this the first true generator on
-                        the Internet. It uses a dictionary of over 200 Latin words, combined with a handful of model
-                        sentence structures, to generate Lorem Ipsum which looks reasonable. The generated Lorem Ipsum
-                        is therefore always free from repetition, injected humour, or non-characteristic words etc.
+                    <p>
+                        For the sixth sprint we focused on the remaining 'Could Have' requirements. Lambros conducted
+                        further experiments into alternative solutions while Nathan developed the last features for the
+                        Set Engine and developed the project website with Junwen. We also submitted the Web API for
+                        the Microsoft Imagine Cup competition.
                     </p>
                     <hr size="30">
                 </div>
@@ -156,18 +183,68 @@
 
             <section id="evaluation">
                 <h2>Evaluation</h2>
-                <div>
-                    <h3>Management</h3>
-                    <p>
-                        Basically, this project is well-designed, expect for a little mess in the early period. In the first
-                        few weeks, it was a little hard to get contact with people from Capita and
-                        also their sample database. In the first, we were in charge of data visualization part, but a few
-                        weeks later, we were told to swap the project with team 1.<br>
 
+                <div>
+                    <h3>Architecture</h3>
+                </div>
+
+                <div>
+                    <h3>Stability</h3>
+                </div>
+
+                <div>
+                    <h3>Efficiency</h3>
+                </div>
+
+                <div>
+                    <h3>Compatibility</h3>
+                </div>
+
+                <div>
+                    <h3>Maintainability</h3>
+                </div>
+
+                <div>
+                    <h3>Evaluation of Testing</h3>
+                </div>
+
+                <div>
+                    <h3>Project Management</h3>
+
+                    <div>
+                        <b>Decision to choose Agile Scrum</b>
+                        <p><br>
+                            The clients were exceptionally difficult to work with and caused us major set backs
+                            throughout
+                            the early stages of the project. The team was switched to a new project towards the end of
+                            November giving us two weeks to gather new requirements, research and prototyping before the
+                            website and video deadline for COMP204P. As a result this left us with a huge backlog of
+                            work to do for next term.<br><br>To counteract the massive backlog of work
+                            resulting from COMP204P we decided to adopt an Agile approach to developing the system. We
+                            could therefore develop the most important features first and iterate towards an optimal
+                            feature. We would only conduct further research and prototyping on the features that
+                            worked and dropped the features that did not work. This gave us the time we needed to
+                            develop the system to its best potential while also conducting the missed out research that
+                            would have otherwise happened during Term 1.
+                        </p>
+                    </div>
+                    <br>
+                    <img src="images/SprintBacklog/SprintStats/percentages.png"
+                         width="700" align="middle"><br>
+                    <p>Figure 1: Analysis of requirements attempted per sprint</p>
+                    <p>We analysed the progress of our sprints and noticed that 'Must Have' requirements show up most
+                        frequently at the start. Then 'Should Have' requirements start increasing in frequency followed
+                        by 'Could Have' requirements. By sprint 5 we had completed most of the 'Must Have' requirements
+                        and'Should Have' and 'Could Have' requirements made up circa 85% of our workload. The number of
+                        tasks related
+                        to the final
+                        submission (in green) also started to rise at the start of the fifth sprint and accounted for
+                        almost 90% of our workload during the final sprint.
                     </p>
                     <br>
-                    <img src="images/SprintBacklog/SprintStats/Screen%20Shot%202017-04-09%20at%2019.10.32.png" width="700" align="middle">
-                    <br>
+                    <img src="images/SprintBacklog/SprintStats/Screen%20Shot%202017-04-09%20at%2019.24.03.png"
+                         width="500" align="middle"><br>
+                    <p>Figure 2: Chart showing the total weights of our work for each sprint.</p>
                     <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered
                         alteration in some form, by injected humour, or randomised words which don't look even slightly
                         believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't
@@ -178,30 +255,14 @@
                         is therefore always free from repetition, injected humour, or non-characteristic words etc.
                     </p>
                     <br>
-                    <img src="images/SprintBacklog/SprintStats/Screen%20Shot%202017-04-09%20at%2019.08.02.png" width="700" align="middle">
-                    <br>
-                    <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered
-                        alteration in some form, by injected humour, or randomised words which don't look even slightly
-                        believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't
-                        anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the
-                        Internet tend to repeat predefined chunks as necessary, making this the first true generator on
-                        the Internet. It uses a dictionary of over 200 Latin words, combined with a handful of model
-                        sentence structures, to generate Lorem Ipsum which looks reasonable. The generated Lorem Ipsum
-                        is therefore always free from repetition, injected humour, or non-characteristic words etc.
-                    </p>
-                    <br>
-                    <img src="images/SprintBacklog/SprintStats/Screen%20Shot%202017-04-09%20at%2019.24.03.png" width="500" align="middle">
-                    <br>
-                    <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered
-                        alteration in some form, by injected humour, or randomised words which don't look even slightly
-                        believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't
-                        anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the
-                        Internet tend to repeat predefined chunks as necessary, making this the first true generator on
-                        the Internet. It uses a dictionary of over 200 Latin words, combined with a handful of model
-                        sentence structures, to generate Lorem Ipsum which looks reasonable. The generated Lorem Ipsum
-                        is therefore always free from repetition, injected humour, or non-characteristic words etc.
+                    <img src="images/SprintBacklog/SprintStats/netsum.png"
+                         width="700" align="middle">
+                    <p>Figure 3: Chart showing the total weights of our work for each sprint with the task category.</p>
+                    <p>The above graph is a combination of Figure 1 and 2. The graph shows the weights and how much was
+                        contributed towards each requirement type.
                     </p>
                 </div>
+
 
             </section>
 

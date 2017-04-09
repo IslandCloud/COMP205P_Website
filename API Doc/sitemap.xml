@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet href="../../sitemap.xsl" type="text/xsl" media="all"?>
+<site>
+<page file="index.html" text="Team 2 Web API Help Page" title="Team 2 Web API Help Page">
+<page file="default.html" text="Chart Engine Backend" title="Home Page"/>
+<page file="GET-api-Test-GetStudentsGender.html" text="GET api/Test/GetStudentsGender" title="GET api/Test/GetStudentsGender"/>
+<page file="GET-api-Test-ListBlobs.html" text="GET api/Test/ListBlobs" title="GET api/Test/ListBlobs"/>
+<page file="GET-api-Test-GraphRetriever.html" text="GET api/Test/GraphRetriever" title="GET api/Test/GraphRetriever"/>
+<page file="GET-api-ChartEngine.html" text="GET api/ChartEngine" title="GET api/ChartEngine"/>
+<page file="GET-api-ChartEngine-id.html" text="GET api/ChartEngine/{id}" title="GET api/ChartEngine/{id}"/>
+<page file="GET-api-Set2_setGuid_setGuid2_operation.html" text="GET api/Set2?setGuid={setGuid}&amp;setGuid2={setGuid2}&amp;operation={operation}" title="GET api/Set2?setGuid={setGuid}&amp;setGuid2={setGuid2}&amp;operation={operation}"/>
+<page file="GET-api-Set2_setType_setProperty_propertyFilter_setProperty2_propertyFilter2_operation.html" text="GET api/Set2?setType={setType}&amp;setProperty={setProperty}&amp;propertyFilter={propertyFilter}&amp;setProperty2={setProperty2}&amp;propertyFilter2={propertyFilte..." title="GET api/Set2?setType={setType}&amp;setProperty={setProperty}&amp;propertyFilter={propertyFilter}&amp;setProperty2={setProperty2}&amp;propertyFilter2={propertyFilter2}&amp;operation={operation}"/>
+<page file="GET-api-Set_set_zip.html" text="GET api/Set?set={set}&amp;zip={zip}" title="GET api/Set?set={set}&amp;zip={zip}"/>
+<page file="POST-api-Set_number.html" text="POST api/Set?number={number}" title="POST api/Set?number={number}"/>
+</page>
+</site>
