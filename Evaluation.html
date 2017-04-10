@@ -182,34 +182,175 @@
             </section>
 
             <section id="evaluation">
-                <h2>Evaluation</h2>
 
                 <div>
-                    <h3>Architecture</h3>
+                    <h2>Architecture</h2>
+                    <div>
+                        <b>Integration Engine</b>
+                        <p>We tried to keep the architecture of the system as simple as possible. One major pivot
+                            decision
+                            was to remove the Integration Engine during the fourth sprint which was one of the main
+                            components in our system. This was to simplify the process down. We realised that we did not
+                            need a complex parser to map a request to a set but instead we could map a request directly
+                            to a
+                            set without any parsing. This greatly reduced complexity and improved the speed to
+                            retrieving
+                            sets as time was not wasted parsing.</p>
+                    </div>
+                    <div>
+                        <b>REST API</b>
+                        <p>
+                            For the REST API we used controllers to model the various requests that we could receive.
+                            The controllers helped us to handle each sub-problem by itself without having to worry about
+                            the other sub-problems breaking down if we broke the one we were working on. It also helps
+                            with scalability as additional controllers can be added in the future for new ideas and
+                            solutions come up.
+                        </p>
+                    </div>
+                    <div>
+                        <b>Set Engine</b>
+                        <p>
+                            The Set Engine and its Decision Tree are both singletons. This helps with keeping track of
+                            the flow of data at runtime as the data is either in the Set Engine or in the Decision Tree.
+                            The fork/join design pattern helps us to keep control of the threads and flow of the
+                            program. Most importantly the fork/join pattern limits the number of sets in heap memory at
+                            run time thereby helping to reduce the risk of an OutOfMemoryException. Once all threads
+                            have joined the Set (along with its subsets) can be removed by the garbage collector and the
+                            Set Engine will begin creating the next Set.
+                        </p>
+                    </div>
                 </div>
 
                 <div>
-                    <h3>Stability</h3>
+                    <h2>Efficiency</h2>
+                    <div>
+                        <b>Random Sampling Algorithm</b>
+                        <p>We evaluated the algorithm's time complexity to O(n) where n is the number of random samples
+                            to be selected.</p>
+                    </div>
+                    <div>
+                        <b>Transportation</b>
+                        <p>We found ZIP to be the most efficient method of transportation with the lowest error rate out
+                            of the methods we tried. We also found that TCP and UDP are roughly the same in terms of
+                            speed with UDP gaining about a 4.5% speed up against TCP.</p>
+                    </div>
+                    <div>
+                        <b>Chart Creation</b>
+                        <p>From our experiments we found that using multi-threading and JSON splitting to be the fastest
+                            method of creating the Chart objects. Reading from a local database gave a speed up of about
+                            5 times compared to reading from a cloud blob.</p>
+                    </div>
+                    <div>
+                        <b>Continuous Integration</b>
+                        <p>We have implemented continuous integration with out Web API to ensure everything will work as
+                            new features are being deployed. In the future we could extend this to all components in our
+                            system.</p>
+                    </div>
                 </div>
 
                 <div>
-                    <h3>Efficiency</h3>
+                    <h2>Compatibility</h2>
+                    <div>
+                        <b>REST API</b>
+                        <p>The REST API should be able for use to every developer wishing to use this API.</p>
+                    </div>
+                    <div>
+                        <b>Set Engine</b>
+                        <p>The Set Engine should be able to work with any MySQL database. It is using the MySQL
+                            connector classes to connect to the database. We have experimented with ADO.NET to read from
+                            SQL and MySQL databases and integrating this feature with the Set Engine can ensure
+                            compatibility with SQL databases.</p>
+                    </div>
                 </div>
 
                 <div>
-                    <h3>Compatibility</h3>
+                    <h2>Maintainability</h2>
+                    <p>In terms of maintenance the system should be fully functional on Azure. For very large datasets
+                        scaling to a more expensive VM may be required to increase the working memory of the Set Engine
+                        at run time. With circa 10 million data points we noticed OutOfMemory exceptions on a standard
+                        tier VM. We have tried to make the system more memory efficient by removing storage of Sets
+                        after they have been uploaded to the Blob. <br><br>If the entire application is single threaded
+                        OutOfMemory exceptions are less likely to occur however the set creation process will be much
+                        slower. It is important to consider the trade-off between speed and memory usage in
+                        this instance. If the system is multi-threaded it will be faster but may also use up memory
+                        faster than the garbage collector can remove it. On the other hand we can reduce the memory
+                        usage but at the expense of increased computation time.</p>
                 </div>
 
                 <div>
-                    <h3>Maintainability</h3>
+                    <h2>Evaluation of Testing</h2>
+
+                    <div>
+                        <b>Speed Tests</b>
+                        <p></p>
+                        <ol>
+                            <li>
+                                <p>
+                                    Problem<br>One of the main priorities of the project was to experiement with
+                                    different methods of
+                                    transporting and manipulating the data. SIMS face major difficulties with computing
+                                    the data
+                                    on a large scale so it was imperative for us to try our best to find the fastest
+                                    possible
+                                    methods for our clients.
+                                </p>
+                            </li>
+                            <li>
+                                <p>
+                                    Methodology<br>We identified the key areas where the system was slowest. This was
+                                    sending data over the REST API and computing the Chart objects. Once key areas for
+                                    speed testing was identified we attempted multiple different solutions of solving
+                                    the problem. We measured the average time for each solution and compared the
+                                    solutions against each other.
+                                </p>
+                            </li>
+                            <li>
+                                <p>
+                                    Conclusion<br>We found that JSON Splitting and multi-threading were the best
+                                    solution as it had the fastest time for generating Chart objects and reading data
+                                    from a database on the same server as the REST service had the fastest read time. We
+                                    also discovered that sending a ZIP file was the fastest method of transportation.
+                                </p>
+                            </li>
+                        </ol>
+                    </div>
+
+                    <div>
+                        <b>Error Testing</b>
+                        <p></p>
+                        <ol>
+                            <li>
+                                Data Transportation<br>Randomly selecting 1000 to 50000 samples from a set happened to
+                                be very fast for transporting data across a TCP stream. When two randomly sampled sets
+                                were intersected (e.g. Two random
+                                samples of 5000 IDs from two Sets) we found that the error rate of the intersection fell
+                                below 0.1% after about about 13000 - 15000 random samples given a set of 500000 unique
+                                IDs. This was unfortunately accompanied with the fact that no more than 60 observed
+                                intersections occurred between two randomly sampled sets. This was bad in case the user
+                                wanted to further intersect the new set with another set. As a result we decided to
+                                stick with using ZIP files.
+                            </li>
+                        </ol>
+                    </div>
+
+                    <div>
+                        <b>Unit Testing</b>
+                        <p></p>
+                        <ol>
+                            <li>
+                                Set Engine<br>We created a Test database for the Set Engine. The Test database contained
+                                data where we could determine the output set that should be created. For each predicted
+                                output set we created a unit test and tested it against the predicted set created by the
+                                Set Engine.
+                            </li>
+                        </ol>
+                    </div>
+
+
                 </div>
 
                 <div>
-                    <h3>Evaluation of Testing</h3>
-                </div>
-
-                <div>
-                    <h3>Project Management</h3>
+                    <h2>Project Management</h2>
 
                     <div>
                         <b>Decision to choose Agile Scrum</b>
