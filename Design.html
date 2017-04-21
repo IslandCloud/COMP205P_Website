@@ -105,30 +105,36 @@
 
             <section id="class">
                 <h2>Class Diagrams</h2>
+                <p>We created a series of UML diagrams to help us visualise what the system should look like before
+                    implementation. The UML diagrams are displayed in Figures 1,2 and 3.</p>
                 <br><br>
-                <div align="center">
-                    <h3>UML diagram for the Chart Engine</h3>
-                    <p>
-                        <img src="images/class%20diagram.png" width="800" height="550">
-                    </p>
+                <div align="left">
+
+                    <figure>
+                        <img src="images/class%20diagram.png" width="600">
+                        <figcaption>
+                            Figure 1: UML Class diagram for the Chart Engine
+                        </figcaption>
+                    </figure>
                 </div>
                 <br><br>
-                <div align="center">
-                    <h3>
-                        UML Diagram for Interpretation Engine
-                    </h3>
-                    <p>
-                        <img src="images/3.png" width="500" height="350">
-                    </p>
+                <div align="left">
+                    <figure>
+                        <img src="images/3.png" width="400">
+                        <figcaption>
+                            Figure 2: UML Diagram for the Interpretation Engine
+                        </figcaption>
+                    </figure>
                 </div>
                 <br><br>
-                <div align="center">
-                    <h3>
-                        UML Diagram for Set Engine
-                    </h3>
-                    <p>
-                        <img src="images/4.png" width="500" height="300">
-                    </p>
+                <div align="left">
+                    <figure>
+                        <img src="images/4.png" width="400">
+                        <figcaption>
+                            Figure 3: UML Diagram for the Set Engine
+                        </figcaption>
+                    </figure>
+
                 </div>
             </section>
 
@@ -142,18 +148,71 @@
                 <ol>
                     <li>
                         <b>Singleton</b>
+                        <p>There are a number of Singletons throughout our project. One notable pair of singletons is
+                            the
+                            Set Engine and its Decision Tree.</p>
                     </li>
                     <li>
                         <b>Model View Controller</b>
+                        <p>We have implemented a controller design pattern in the REST API. Different controllers are
+                            responsible for controlling the flow of information for different classes of sets.</p>
                     </li>
                     <li>
                         <b>Fork/Join Pattern</b>
+                        <p>The Fork/Join pattern was implemented in the Set Engine. A group of sets created would fork
+                            from the main thread then they would each create their own individual subsets. When the
+                            forked thread has uploaded its data onto the blob it will join with the main thread and wait
+                            for the others to finish.</p>
                     </li>
                     <li>
-                        <b>Optionals For Testing Complex Functions</b>
+                        <b>Test Mode for complex functions</b>
+                        <p>Due to the complexity of the Set Engine we encountered some difficulties testing the output.
+                            This was because the Set Engine would perform operations such as uploading data into the
+                            blob and write emails to staff informing them of the latest run. In order to counteract this
+                            we developed a design pattern to run unit tests on complex functions such as the Set
+                            Engine.<br><br>We created a Test Mode for the Set Engine. When in Test Mode a separate
+                            database for testing will be used. The Set Engine will avoid performing critical functions
+                            such as emailing clients. When the data is generated it will then be run against a series of
+                            unit tests. The idea is displayed in Figure 4 where the green path is the path taken when in
+                            Test Mode. Critical functions are avoided and a test suite is run.
+                        </p>
+                        <figure>
+                            <img src="images/HCI/DesignPatterns/testing.png" width="500">
+                            <figcaption>
+                                Figure 4: Diagram showing path taken by Set Engine in test mode (green) and in
+                                production (red)
+                            </figcaption>
+                        </figure>
+                        <br>
                     </li>
                     <li>
-                        <b>Information Tagging</b>
+                        <b>Information Chaining</b>
+                        <p>One major difficulty faced was retrieving information from Sets. Due to the size of the sets
+                            retrieving certain information was computationally expensive and took a long time. As a
+                            result we implemented a system of chaining information to retrieve certain attributes about
+                            the set without having to perform expensive computations against the entire set. (Figure
+                            5)</p>
+                        <figure>
+                            <img src="images/HCI/DesignPatterns/chaining1.png" width="300">
+                            <figcaption>
+                                Figure 5: Basic concept of chaining information
+                            </figcaption>
+                        </figure>
+                        <br>
+                        <p>
+                            In the diagram above the "-info" identifier will return certain information regarding the
+                            set called "MySet".
+                        <ol>
+                            <li>
+                                "-info-size" will return the size of the set.
+                            </li>
+                            <li>
+                                "-info-type" will return the type of the set.
+                            </li>
+                        </ol>
+                        These values are pre-calculated and so there is no need to retrieve the entire set to calculate
+                        this information. The information chained can be anything depending on the choice of the developer.
+                        </p>
                     </li>
                 </ol>
             </section>
@@ -166,7 +225,8 @@
 
                 <div align="left">
                     <p><b>Retrieving a Set</b></p>
-                    <img src="images/Sequence/SetSD.png" width="700" height="400">
+                    <img src="images/Sequence/SetSD.png" width="600" >
+                    <p>Figure 6: Sequence diagram for retrieving a set</p>
                     <p>When a GET requests arrives from the Front End it is received by the REST Controller. The
                         Developer is encouraged to first retrieve the map of the sets so they know which sets they can
                         call (Note that is is optional and recommended). The Front End then calls the Set which follows
@@ -176,14 +236,16 @@
 
                 <div align="left">
                     <p><b>Retrieving a Chart</b></p>
-                    <img src="images/Sequence/ChartSD.png" width="800" height="400">
+                    <img src="images/Sequence/ChartSD.png" width="600" >
+                    <p>Figure 7: Sequence diagram for retrieving a Chart object</p>
                     <p>Alternatively the developer can call a Chart object using the API by specifying the set (A) which
                         will return the chart for set A.</p>
                     <br><br><br>
                 </div>
                 <div align="left">
                     <p><b>Set Creation Process</b></p>
-                    <img src="images/Sequence/SetEngineSD.png" width="950" height="650">
+                    <img src="images/Sequence/SetEngineSD.png" width="750">
+                    <p>Figure 8: Sequence diagram of the Set Engine</p>
                     <p>When the Windows Task Scheduler initiates the Set Engine to start the Set Engine beings by
                         retrieving all tables from the database it specified to read from. The Set Engine then attempts
                         to generate sets for each table in the database and sub sets using its Decision Tree. The Set
@@ -199,6 +261,7 @@
                 <div align="center">
                     <h3>Entity Relationship Diagram of our mock database</h3>
                     <img src="images/DBSchema.png" width="800">
+                    <p>Figure 9: ER Diagram of our mock database</p>
                     <p>
                         We created a mock database to test the Set Engine. The above diagram shows the entity
                         relationship of our mock database.
@@ -211,10 +274,24 @@
                 <div align="center">
                     <h3>Diagram of Decision Tree</h3>
                     <img src="images/DecisionTree.jpg" width="600">
+                    <p>Figure 10: Decision Tree implemented into the Set Engine</p>
                     <p style="width: 600px">
                         We decided to use a decision tree to classify data types. We implemented this decision tree into
                         the Set Engine which allowed it to split the sets into subsets (e.g. percentiles).
                     </p>
+                </div>
+            </section>
+
+            <section id="blobStructure">
+                <h2>Blob Structure</h2>
+                <div align="middle">
+                    <p>The Set Engine outputs a certain structure onto the Azure blob. </p>
+                    <figure>
+                        <img src="images/SetEngine/CompatibilityTesting/schoolBlob.png" width="800">
+                        <figcaption>
+                            Figure 11: Structure of Blob created by the Set Engine.
+                        </figcaption>
+                    </figure>
                 </div>
             </section>
 
@@ -228,15 +305,6 @@
                     IDE: Visual Studio 2015, Xamarin
                 </p>
             </section>
-
-            <section id="implementation">
-                <h2>Implementation</h2>
-                <p>
-                    implementation details of key functionality
-                </p>
-            </section>
-
-
         </div>
     </div>
 

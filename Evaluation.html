@@ -900,7 +900,7 @@
                             <td>13</td>
                             <td>33%</td>
                             <td>33%</td>
-                            <td>33</td>
+                            <td>33%</td>
                         </tr>
                     </table>
                 </div>
@@ -949,7 +949,6 @@
                 </div>
 
 
-
                 <div>
                     <h2>Efficiency</h2>
                     <div>
@@ -985,7 +984,7 @@
                     </div>
                     <div>
                         <b>Set Engine</b>
-                        <p>The Set Engine should be able to work with any MySQL database. It is using the MySQL
+                        <p>The Set Engine should be able to work with any database. It is using the MySQL
                             connector classes to connect to the database. We have experimented with ADO.NET to read from
                             SQL and MySQL databases and integrating this feature with the Set Engine can ensure
                             compatibility with SQL databases.</p>
@@ -994,16 +993,30 @@
 
                 <div>
                     <h2>Maintainability</h2>
+                    <h3>Azure</h3>
                     <p>In terms of maintenance the system should be fully functional on Azure. For very large datasets
                         scaling to a more expensive VM may be required to increase the working memory of the Set Engine
                         at run time. With circa 10 million data points we noticed OutOfMemory exceptions on a standard
                         tier VM. We have tried to make the system more memory efficient by removing storage of Sets
-                        after they have been uploaded to the Blob. <br><br>If the entire application is single threaded
+                        after they have been uploaded to the Blob.
+                    </p>
+
+                    <h3>Set Engine Memory Feasibility</h3>
+                    <p> If the entire application is single threaded
                         OutOfMemory exceptions are less likely to occur however the set creation process will be much
                         slower. It is important to consider the trade-off between speed and memory usage in
                         this instance. If the system is multi-threaded it will be faster but may also use up memory
                         faster than the garbage collector can remove it. On the other hand we can reduce the memory
-                        usage but at the expense of increased computation time.</p>
+                        usage but at the expense of increased computation time. We have implemented a fork/join design
+                        pattern to help minimise memory usage while maximising speed. However even with the design
+                        pattern a run without memory leaks are not guarenteed in all cases and so this should be a case
+                        to be aware of when undergoing system maintenance.</p>
+                    <h3>Set Engine Automation</h3>
+                    <p>The Set Engine contains a suite of features for automation. The Set Engine can be run on the
+                        Windows Tasks Scheduler application available on all Windows Servers 2012 and later. In addition
+                        the Set Engine also includes an automated emailing service to notify administrators of any
+                        defects that have occurred during a particular run and so problems likely to be identified and
+                        solved quicker.</p>
                 </div>
 
                 <div>
