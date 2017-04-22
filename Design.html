@@ -84,7 +84,10 @@
                             very slow depending on the size of the set.</p>
                     </li>
                     <li>
-                        <p>The REST API<br><br>The REST API... </p>
+                        <p>The REST API<br><br>The REST API was our chosen medium for communicating data to front end
+                            developers. We specifically chose to use the REST API because of its wide use, small
+                            learning curve and general availability on multiple platforms. We used controllers to carry
+                            out different types of tasks and created a suite of unit tests for each controller.</p>
                     </li>
                     <li>
                         <p>Supporting Libraries<br><br>During the development of the three programs above we developed
@@ -211,7 +214,8 @@
                             </li>
                         </ol>
                         These values are pre-calculated and so there is no need to retrieve the entire set to calculate
-                        this information. The information chained can be anything depending on the choice of the developer.
+                        this information. The information chained can be anything depending on the choice of the
+                        developer.
                         </p>
                     </li>
                 </ol>
@@ -225,7 +229,7 @@
 
                 <div align="left">
                     <p><b>Retrieving a Set</b></p>
-                    <img src="images/Sequence/SetSD.png" width="600" >
+                    <img src="images/Sequence/SetSD.png" width="600">
                     <p>Figure 6: Sequence diagram for retrieving a set</p>
                     <p>When a GET requests arrives from the Front End it is received by the REST Controller. The
                         Developer is encouraged to first retrieve the map of the sets so they know which sets they can
@@ -236,7 +240,7 @@
 
                 <div align="left">
                     <p><b>Retrieving a Chart</b></p>
-                    <img src="images/Sequence/ChartSD.png" width="600" >
+                    <img src="images/Sequence/ChartSD.png" width="600">
                     <p>Figure 7: Sequence diagram for retrieving a Chart object</p>
                     <p>Alternatively the developer can call a Chart object using the API by specifying the set (A) which
                         will return the chart for set A.</p>
@@ -257,44 +261,207 @@
             </section>
 
             <section id="databaseStructure">
-                <h2>Data Storage</h2>
+                <h2>Database Structure</h2>
+                <h3>Data Storage</h3>
                 <div align="center">
-                    <h3>Entity Relationship Diagram of our mock database</h3>
-                    <img src="images/DBSchema.png" width="800">
+                    <b>Entity Relationship Diagram of our mock database</b>
+                    <img src="images/DBSchema.png" width="700">
                     <p>Figure 9: ER Diagram of our mock database</p>
-                    <p>
+                    <p style="width:700px;">
                         We created a mock database to test the Set Engine. The above diagram shows the entity
-                        relationship of our mock database.
+                        relationship of our mock database. We additionally created a database generation tool to
+                        randomly generate a database of this structure which we use for testing purposes and if data is
+                        lost.
+                    </p>
+                </div>
+                <br><br>
+                <h3>Blob Structure</h3>
+                <div align="middle">
+                    <b>The Set Engine outputs a certain structure onto the Azure blob. </b>
+                    <figure>
+                        <img src="images/SetEngine/CompatibilityTesting/schoolBlob.png" width="700">
+                        <figcaption>
+                            Figure 10: Structure of Blob created by the Set Engine.
+                        </figcaption>
+                    </figure>
+                    <br>
+                    <p style="width:700px;">
+                        We decided to switch from the file system to the Azure blob. The Azure blob is much more
+                        scalable and we can create many different blobs for different databases which would be
+                        significantly harder to do on a file system. The blob shown in Figure 10 is the blob created by
+                        the Set Engine from the database shown in Figure 9.
                     </p>
                 </div>
             </section>
 
-            <section id="DecisionTree">
-                <h2>Decision Tree</h2>
-                <div align="center">
-                    <h3>Diagram of Decision Tree</h3>
-                    <img src="images/DecisionTree.jpg" width="600">
-                    <p>Figure 10: Decision Tree implemented into the Set Engine</p>
-                    <p style="width: 600px">
-                        We decided to use a decision tree to classify data types. We implemented this decision tree into
+            <section id="DataClassifier">
+                <h2>Data Classifier</h2>
+                <div align="left">
+                    <h3>The need to classify data types</h3>
+                    <p>In order to create more meaningful sets we need to differentiate the parent sets into subsets. In
+                        order to achieve this the first step to take was to identify what the set contains. To complete
+                        this subgoal we had to identify the data type making up the set. This problem is shown in Figure
+                        11 which was the Set Engine output without creation of subsets.</p>
+                    <figure align="middle">
+                        <img src="images/DecisionTreeDesign/noDTree.png" width="700">
+                        <figcaption>
+                            Figure 11: Blob structure without any subsets.
+                        </figcaption>
+                    </figure>
+                    <br><br>
+                </div>
+                <div align="left">
+                    <h3>Artificial Neural Network</h3>
+                    <p>Our initial attempt to classify data types was to use artificial neural networks with the output
+                        vector being the different datatypes. The input vector would be a series of attributes of the
+                        set that we believe would be useful for identifying its datatype.<br><br>We managed to create a
+                        basic feed forward network in C# but had trouble implementing the back propagation which had
+                        many bugs that we were unable to debug.</p>
+                </div>
+                <div align="left">
+                    <h3>Decision Tree</h3>
+                    <p>After several unsuccessful attempts to debug the backpropagation we decided to switch to using a
+                        decision tree to classify data types. The purposes for this were numerous but the main reason
+                        was that we were over-complicating a simple task.</p>
+
+                    <figure align="middle">
+                        <img src="images/DecisionTree.jpg" width="500">
+                        <figcaption>
+                            Figure 12: Decision Tree implemented into the Set Engine
+                        </figcaption>
+                        <br>
+                    </figure>
+                    <p>
+                        After we created the decision tree to classify data types. We implemented this decision tree
+                        into
                         the Set Engine which allowed it to split the sets into subsets (e.g. percentiles).
                     </p>
                 </div>
             </section>
 
-            <section id="blobStructure">
-                <h2>Blob Structure</h2>
+            <section id=hci-"mockups">
+                <h2>Prototypes and Mock-ups</h2>
+
+                <!--<div align="middle">-->
+                <!--<h3>Animation showing progression of our system</h3>-->
+                <!--<img src="images/Prototypes/prototypes.gif" width="800" height="450">-->
+                <!--<br><br><br>-->
+                <!--<hr size="30">-->
+                <!--</div>-->
+
                 <div align="middle">
-                    <p>The Set Engine outputs a certain structure onto the Azure blob. </p>
-                    <figure>
-                        <img src="images/SetEngine/CompatibilityTesting/schoolBlob.png" width="800">
-                        <figcaption>
-                            Figure 11: Structure of Blob created by the Set Engine.
-                        </figcaption>
-                    </figure>
+                    <h3>First Prototype</h3>
+                    <h4>12 December 2016</h4>
+                    <img src="images/Prototypes/prototype-1.png" width="800" height="450">
+                    <br><br><br>
+                    <p style="width: 800px" align="middle">Our first prototype was created near to the website deadline
+                        for COMP204P. Based on the
+                        information we had from the project brief and information from Team 1. We came up with an idea
+                        that uses random samples to generate chart data that would resemble real life data accurately
+                        and thus we created the above prototype.</p>
+                    <hr size="30">
+                </div>
+
+                <div align="middle">
+                    <h3>Second Prototype</h3>
+                    <h4>13 January 2017</h4>
+                    <img src="images/Prototypes/prototype-2.png" width="800" height="450">
+                    <br><br><br>
+                    <p style="width: 800px" align="middle">
+                        On 12 January we were able to meet with the client for the first time since the start of the
+                        new project. The developer from
+                        SIMS taught us how their current system works. He informed us that their current engine can
+                        create sets without knowing the structure of the database but he did not explain how. The key
+                        idea we took from the meeting was the idea of sets and so we modified our original prototype for
+                        sets instead of random samples.
+                    </p>
+                    <hr size="30">
+                </div>
+
+                <div align="middle">
+                    <h3>Third Prototype</h3>
+                    <h4>24 January 2017</h4>
+                    <h5>(Original version)</h5>
+                    <img src="images/Prototypes/prototype-3.png" width="800" height="450">
+                    <br><br><br>
+                    <p style="width: 800px" align="middle">
+                        Near to the end of the first sprint we refined our model. We used the Azure blob for set storage
+                        and these three components (the Set Engine, Interpretation Engine and REST API) would be the
+                        centrepiece of our system. There would be other smaller side features, research and experiments
+                        on the side but this would be what we hoped to work towards throughout the project.
+                    </p>
+                    <hr size="30">
+                </div>
+
+                <div align="middle">
+                    <h3>Fourth Prototype</h3>
+                    <h4>27 February 2017</h4>
+                    <img src="images/Prototypes/prototype-4.png" width="800" height="450">
+                    <br><br><br>
+                    <p style="width: 800px" align="middle">
+                        During the third sprint we decided to remove large parts of the Interpretation Engine and
+                        integrate whatever was left into the REST API. We realised that we could just map a request
+                        directly to a set without having to do extensive parsing. The mapping and removal of the
+                        Integration Engine meant made the system simpler and faster.
+                    </p>
+                    <hr size="30">
+                </div>
+
+                <div align="middle">
+                    <h3>Final Version</h3>
+                    <h4>13 March 2017</h4>
+                    <img src="images/Prototypes/prototype-5.png" width="800" height="450">
+                    <br><br><br>
+                    <p style="width: 800px" align="middle">
+                        Near the beginning of March we were experimenting with different ways to generate charts. We
+                        figured that Team 1 would be creating Charts on the front end which meant they were calling
+                        several sets from our Blob. This meant transporting several sets each containing millions of
+                        data points across a TCP stream. To speed this process up we thought that it would be much
+                        faster
+                        to just create the charts in the backend and send Team 1 a Chart object or even an ND3 Chart
+                        object in which they can plot
+                        the graph. As a result we added a Chart engine and added features to support line graphs, bar
+                        charts and pie charts.
+                    </p>
                 </div>
             </section>
 
+            <section id="APIScreenShots">
+                <h2>Web API</h2>
+                <div align="middle">
+                    <h3>Sample Set in JSON</h3>
+                    <img src="images/APIScreenshots/APIReturn.png" width="800">
+                    <br><br><br>
+                    <p style="width: 800px">
+                        We have created a user friendly return format for the REST API. The Sets are minimised to a few
+                        fields describing the attributes of the set followed by an array of its values.
+                    </p>
+                    <hr size="30">
+                </div>
+
+                <div align="middle">
+                    <h3>List of Sample Requests on the API Website</h3>
+                    <img src="images/APIScreenshots/API1.png" width="800">
+                    <br><br><br>
+                    <p style="width: 800px">
+                        This is a screen shot of our API website. On the website users are about to find sample
+                        requests.
+                    </p>
+                    <hr size="30">
+                </div>
+
+                <div align="middle">
+                    <h3>Sample Request With Optional Parameters</h3>
+                    <img src="images/APIScreenshots/API2.png" width="800">
+                    <br><br><br>
+                    <p style="width: 800px">
+                        Users are able to see sample requests as shown in the above screen shot. Users can also paste
+                        some of the requests into the address bar to test the API out instantaneously.
+                    </p>
+
+                </div>
+
+            </section>
             <section id="tool">
                 <h2>Development Tools</h2>
                 <p>
