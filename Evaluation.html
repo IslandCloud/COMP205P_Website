@@ -865,8 +865,8 @@
                             <td>Complete</td>
                             <td>Yes</td>
                             <td>13</td>
-                            <td>75%</td>
-                            <td>25%</td>
+                            <td>95%</td>
+                            <td>5%</td>
                             <td></td>
                         </tr>
 
@@ -933,11 +933,31 @@
                     <div>
                         <b>REST API</b>
                         <p>
-                            For the REST API we used controllers to model the various requests that we could receive.
-                            The controllers helped us to handle each sub-problem by itself without having to worry about
-                            the other sub-problems breaking down if we broke the one we were working on. It also helps
-                            with scalability as additional controllers can be added in the future for new ideas and
-                            solutions come up.
+                            We tried to keep the URLs of our API uniform, by adhering to the common practice of using
+                            singular nouns to suffix our requests. Due to the nature of our API, most (if not all) of
+                            the requests are of the GET variety, so the action performed by each URL becomes quite easy
+                            to decipher.
+                            <br><br>
+                            In an effort to add more features and to make the API more flexible, we found that we were
+                            driven to increasing the depth of our URLs in a way which made the API unnecessarily
+                            complex. To combat this, we changed our structure early on and we adopted the '?'
+                            parametrisation format. For example, requesting a Set of Students along with their
+                            MathsGrade would look like this:
+                            <br><br>
+                            /api/Set/Student/MathsGrade
+                            <br><br>
+                            but with the new design, it is much more intuitive:
+                            <br><br>
+                            /api/Set?setType=Student&setProperty=MathsGrade
+                            <br>
+                        </p>
+                    </div>
+                    <div>
+                        <b>REST API Error Handling</b>
+                        <p>
+                            For each type of request our API takes, we provide an informative error response when
+                            something goes wrong. Providing useful error responses will help developers get to know the
+                            API.
                         </p>
                     </div>
                     <div>
@@ -966,7 +986,10 @@
                         <b>Transportation</b>
                         <p>We found ZIP to be the most efficient method of transportation with the lowest error rate out
                             of the methods we tried. We also found that TCP and UDP are roughly the same in terms of
-                            speed with UDP gaining about a 4.5% speed up against TCP.</p>
+                            speed with UDP gaining about a 4.5% speed up against TCP.<br><br>The REST API on a fast
+                            connection returns sets
+                            within 1 second for a medium sized set (circa 100000 data points) and around 2 seconds for
+                            larger sets (>1 million) with set operations.</p>
                     </div>
                     <div>
                         <b>Chart Creation</b>
@@ -1101,8 +1124,9 @@
                     <div>
                         <b>Decision to choose Agile Scrum</b>
                         <p><br>
-                            The clients were exceptionally difficult to work with and caused us major set backs
-                            throughout
+                            Due to miscommunication between our team, the department and our client we experienced major
+                            set backs
+                            during
                             the early stages of the project. The team was switched to a new project towards the end of
                             November giving us two weeks to gather new requirements, research and prototyping before the
                             website and video deadline for COMP204P. As a result this left us with a huge backlog of
@@ -1149,26 +1173,88 @@
 
             <section id="future">
                 <h2>Future Work</h2>
-                <h3>
-                    Multiple Primary Key Tables
-                </h3>
-                <div align="left">
-                    <p>One difficulty we came across were tables with multiple primary keys. In Figure 4 we have
-                        the School ID and the Academic Year as the primary keys.</p>
-                    <img src="images/SetEngine/multikey-table.png" width="800px">
-                    <p>Figure 4: Sample table with two primary keys</p>
+                <ol>
+                    <li>
+                        <div>
+                            <h3>Lazy Evaluation</h3>
+                            <p>One of the possible areas for improvement in the future is to implement lazy evaluation
+                                of
+                                charts. This is
+                                where we send the frontend the minimum amount of information to create a chart and then
+                                only
+                                load the necessary chart data if the user chooses to interact with the chart.</p>
+                        </div>
+                    </li>
+                    <li>
+                        <div>
+                            <h3>
+                                Multiple Primary Key Tables
+                            </h3>
+                            <div align="left">
+                                <p>One difficulty we came across were tables with multiple primary keys. In Figure 4 we
+                                    have
+                                    the School ID and the Academic Year as the primary keys.</p>
+                                <figure align="middle">
+                                    <img src="images/SetEngine/multikey-table.png" width="500px">
+                                    <p>Figure 4: Sample table with two primary keys</p>
+                                </figure>
 
-                    <p>The solution we proposed was to concatenate the primary keys to form the set. This resulted in
-                        the
-                        set in Figure 5 when we viewed the results.</p>
+                                <p>The solution we proposed was to concatenate the primary keys to form the set. This
+                                    resulted
+                                    in
+                                    the
+                                    set in Figure 5 when we viewed the results.</p>
 
-                    <img src="images/SetEngine/multikey-table2.png" width="200px">
-                    <p>Figure 5: The resulting table from the proposed algorithm</p>
-                    <p>From analysis we can see that this would not work well with other sets since other sets usually
-                        have IDs of the Academic year or School ID but rarely both.<br><br>A solution may be to split
-                        the ID by a delimiter and see how this would interact with other sets. Given an additional 6
-                        months this could be an area of future work.</p>
-                </div>
+                                <figure align="middle">
+                                    <img src="images/SetEngine/multikey-table2.png" width="150px">
+                                    <p>Figure 5: The resulting table from the proposed algorithm</p>
+                                </figure>
+                                <p>From analysis we can see that this would not work well with other sets since other
+                                    sets
+                                    usually
+                                    have IDs of the Academic year or School ID but rarely both.<br><br>A solution may be
+                                    to
+                                    split
+                                    the ID by a delimiter and see how this would interact with other sets. Given an
+                                    additional 6
+                                    months this could be an area of future work.</p>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div>
+                            <h3>
+                                Scaling the system for all schools (clients)
+                            </h3>
+                            <div align="left">
+                                <p>The current system generates a blob for one database. In the future this can be
+                                    expanded to
+                                    all the clients. Each client will have their own set database on a container on
+                                    Azure. Then
+                                    when a client logs into their account the Web API will then read data from the
+                                    clients
+                                    container blob.</p>
+                                <div align="middle">
+                                    <div style="width: 501px">
+                                        <img src="images/Solution2/Scaling1.png" width="500">
+                                        <p>
+                                            Figure 6: Set Engine or some data generation engine reading from every
+                                            client's
+                                            database and
+                                            creating each client a set storage on a blob on Azure.
+                                        </p><br>
+                                        <img src="images/Solution2/Scaling2.png" width="500">
+                                        <p>
+                                            Figure 7: Diagram showing clients retrieving data from each of their own
+                                            individual
+                                            blobs.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                </ol>
             </section>
 
 

@@ -133,20 +133,24 @@
 
                 </ol>
 
-                <p>
-                    <img src="images/initial.png" width="700" height="500" align="middle"><br>
-                    Figure 1: Schematic diagram to show the overview of our proposed system
-                </p>
+                <div align="middle">
+                    <p>
+                        <img src="images/initial.png" width="700" height="500" align="middle"><br>
+                        Figure 1: Schematic diagram to show the overview of our proposed system
+                    </p>
+                </div>
 
                 <h3>User Friendliness</h3>
                 <p>We also carefully considered how the user will interact with our API. One of the major drawbacks to
                     APIs is the learning curve required to use the API. We therefore decided to make a simple three step
                     process (click-copy-paste) for the user so they can get started with the API as soon as
                     possible. (See Figure 2) </p>
-                <p>
-                    <img src="images/Storyboard.png" width="1000" height="350" align="middle"><br>
-                    Figure 2: Storyboard showing the three step process to get started with the API.
-                </p>
+                <div align="middle">
+                    <p>
+                        <img src="images/Storyboard.png" width="1000" height="350" align="middle"><br>
+                        Figure 2: Storyboard showing the three step process to get started with the API.
+                    </p>
+                </div>
 
             </section>
 
@@ -188,11 +192,13 @@
                 <p>
                     Based on the final requirements, we updated the diagram
                 </p>
-                <img src="images/Solution2/solution2.png" width="800"  align="middle">
-                <br>
-                <p>
-                    Figure 3: Schematic diagram to show the overview of the final system
-                </p>
+                <div align="middle">
+                    <img src="images/Solution2/solution2.png" width="800" align="middle">
+                    <br>
+                    <p>
+                        Figure 3: Schematic diagram to show the overview of the final system
+                    </p>
+                </div>
                 <p>There is a further second solution created as this was primarily an experimental project set by the
                     client and so we decided that it would be helpful to provide multiple different solutions to a
                     problem as this would diversify our risk and help us find a more optimal solution.</p>
@@ -202,174 +208,229 @@
                 <h2>MoSCoW Functional and Non-Functional Requirements</h2>
                 <p>
                 <div style="width: 1000px">
-                    <table>
-                        <tbody>
-                        <tr>
-                            <th width="100">Type</th>
-                            <th width="50">ID</th>
-                            <th width="500">Description</th>
-                            <th width="150">Functional</th>
-                            <th width="100">Status</th>
+                    <table border="1"
+                           style="font-family: arial; width: 100%; box-shadow: none;    border-collapse: collapse;">
+                        <tr align="middle">
+                            <td><b>Type</b></td>
+                            <td><b>MoSCow ID</b></td>
+                            <td><b>Description</b></td>
+                            <td><b>Functional</b></td>
+                            <td><b>Status</b></td>
                         </tr>
-                        <tr>
-                            <td>Must Have</td>
-                            <td>
-                                M0<br>
-                                M1<br>
-                                M2<br>
-                                M3<br>
-                                M4<br>
-                                M5<br>
-                                M6<br>
-                                M7<br>
-                                M8<br>
-                            </td>
-                            <td>
-                                Final set of deliverables including a website, video and any other related content.<br>
-                                A database for storing sets<br>
-                                The Set Engine can generate sets without knowing the structure of a database.<br>
-                                The Set Engine can push sets to the set database in a structured format.<br>
-                                The Set Engine can split sets into further subsets.<br>
-                                A REST service for developers.<br>
-                                The REST Controllers must be able to retrieve any set in the set database.<br>
-                                Libraries to read and write from the chosen storage system for the database.<br>
-                                Scalable design for each component.
-                            </td>
-                            <td>
-                                Non-Functional<br>
-                                Functional<br>
-                                Functional<br>
-                                Functional<br>
-                                Functional<br>
-                                Functional<br>
-                                Functional<br>
-                                Functional<br>
-                                Non-Functional
-                            </td>
-                            <td>
-                                Complete<br>
-                                Complete<br>
-                                Complete<br>
-                                Complete<br>
-                                Complete<br>
-                                Complete<br>
-                                Complete<br>
-                                Complete<br>
-                                Complete
-                            </td>
+
+                        <tr align="middle">
+                            <td>Must Haves</td>
+                            <td>M0</td>
+                            <td>Final set of deliverables including a website, video and any other related content.</td>
+                            <td>Non-Functional</td>
+                            <td>Complete</td>
                         </tr>
-                        <tr>
-                            <td>Should Have</td>
-                            <td>
-                                S1<br>
-                                S2<br>
-                                S3<br>
-                                S4<br>
-                                S5<br>
-                                S6<br>
-                                S7<br>
-                                S8<br>
-                            </td>
-                            <td>
-                                API allows Team 1 to perform basic requests.<br>
-                                Experiment with UDP as a method of data transfer.<br>
-                                Experiment with ZIP as a method of data transfer.<br>
-                                Experiment with any other methods to transport data to Team 1 effectively.<br>
-                                Experiment with different methods to generate charts as fast as possible.<br>
-                                The REST Service to support retrieval of ZIP files.<br>
-                                The REST Service to support retrieval of Graph objects in JSON.<br>
-                                Chart Engine that can create Chart Objects in the backend.
-                            </td>
-                            <td>
-                                Functional<br>
-                                Non-Functional<br>
-                                Non-Functional<br>
-                                Non-Functional<br>
-                                Non-Functional<br>
-                                Functional<br>
-                                Functional<br>
-                                Functional
-                            </td>
-                            <td>
-                                Complete<br>
-                                Complete<br>
-                                Complete<br>
-                                Complete<br>
-                                Complete<br>
-                                Complete<br>
-                                Complete<br>
-                                Complete
-                            </td>
+
+                        <tr align="middle">
+                            <td></td>
+                            <td>M1</td>
+                            <td>A database for storing sets.</td>
+                            <td>Functional</td>
+                            <td>Complete</td>
                         </tr>
-                        <tr>
-                            <td>Could Have</td>
-                            <td>
-                                C1<br>
-                                C2<br>
-                                C3<br>
-                                C4<br>
-                                C5<br>
-                                C6<br>
-                                C7<br>
-                                C8<br>
-                            </td>
-                            <td>
-                                Set Engine to support multiple databases.<br>
-                                Set Engine to generate a map of the storage system.<br>
-                                Set Engine to generate size tags for sets<br>
-                                A tool to generate sample databases.<br>
-                                Provide a documentation introducing how to use the API.<br>
-                                Automated emailing system for the Set Engine.<br>
-                                Experimenting with different solutions after main solution is implemented<br>
-                                Unit testing.
-                            </td>
-                            <td>
-                                Functional<br>
-                                Functional<br>
-                                Functional<br>
-                                Functional<br>
-                                Functional<br>
-                                Functional<br>
-                                Non-Functional<br>
-                                Functional<br>
-                            </td>
-                            <td>
-                                Complete<br>
-                                Complete<br>
-                                Complete<br>
-                                Complete<br>
-                                Complete<br>
-                                Complete<br>
-                                Complete<br>
-                                Complete
-                            </td>
+
+                        <tr align="middle">
+                            <td></td>
+                            <td>M2</td>
+                            <td>The Set Engine can generate sets without knowing the structure of a database.</td>
+                            <td>Functional</td>
+                            <td>Complete</td>
                         </tr>
-                        <tr>
-                            <td width=>Won't Have</td>
-                            <td>
-                                W1<br>
-                                W2<br>
-                                W3<br>
-                            </td>
-                            <td>The project must not be developed using .NET 4.0 or below.<br>
-                                The project must not use technology that is depreciated.<br>
-                                The project must not use only one method of approach.
-                            </td>
-                            <td>
-                                Non-Functional<br>
-                                Non-Functional<br>
-                                Non-Functional
-                            </td>
-                            <td>
-                                Not Complete<br>
-                                Not Complete<br>
-                                Not Complete
-                            </td>
+
+                        <tr align="middle">
+                            <td></td>
+                            <td>M3</td>
+                            <td>The Set Engine can push sets to the set database in a structured format.</td>
+                            <td>Functional</td>
+                            <td>Complete</td>
                         </tr>
-                        </tbody>
+
+                        <tr align="middle">
+                            <td></td>
+                            <td>M4</td>
+                            <td>The Set Engine can split sets into further subsets.</td>
+                            <td>Functional</td>
+                            <td>Complete</td>
+                        </tr>
+
+                        <tr align="middle">
+                            <td></td>
+                            <td>M5</td>
+                            <td>A REST service for developers.</td>
+                            <td>Functional</td>
+                            <td>Complete</td>
+                        </tr>
+
+                        <tr align="middle">
+                            <td></td>
+                            <td>M6</td>
+                            <td>The REST Controllers must be able to retrieve any set in the set database.</td>
+                            <td>Functional</td>
+                            <td>Complete</td>
+                        </tr>
+
+                        <tr align="middle">
+                            <td></td>
+                            <td>M7</td>
+                            <td>Libraries to read and write from the chosen storage system for the database.</td>
+                            <td>Functional</td>
+                            <td>Complete</td>
+                        </tr>
+
+                        <tr align="middle">
+                            <td></td>
+                            <td>M8</td>
+                            <td>Scalable design for each component.</td>
+                            <td>Non-Functional</td>
+                            <td>Complete</td>
+                        </tr>
+
+                        <tr align="middle">
+                            <td>Should Haves</td>
+                            <td>S1</td>
+                            <td>API allows Team 1 to perform basic requests.</td>
+                            <td>Functional</td>
+                            <td>Complete</td>
+                        </tr>
+
+                        <tr align="middle">
+                            <td></td>
+                            <td>S2</td>
+                            <td>Experiment with UDP as a method of data transfer.</td>
+                            <td>Non-Functional</td>
+                            <td>Complete</td>
+                        </tr>
+
+                        <tr align="middle">
+                            <td></td>
+                            <td>S3</td>
+                            <td>Experiment with ZIP as a method of data transfer.</td>
+                            <td>Non-Functional</td>
+                            <td>Complete</td>
+                        </tr>
+                        <tr align="middle">
+                            <td></td>
+                            <td>S4</td>
+                            <td>Experiment with any other methods to transport data to Team 1 effectively.</td>
+                            <td>Non-Functional</td>
+                            <td>Complete</td>
+                        </tr>
+
+                        <tr align="middle">
+                            <td></td>
+                            <td>S5</td>
+                            <td>Experiment with different methods to generate charts as fast as possible.</td>
+                            <td>Non-Functional</td>
+                            <td>Complete</td>
+                        </tr>
+                        <tr align="middle">
+                            <td></td>
+                            <td>S6</td>
+                            <td>The REST Service to support retrieval of ZIP files.</td>
+                            <td>Functional</td>
+                            <td>Complete</td>
+                        </tr>
+                        <tr align="middle">
+                            <td></td>
+                            <td>S7</td>
+                            <td>The REST Service to support retrieval of Graph objects in JSON.</td>
+                            <td>Functional</td>
+                            <td>Complete</td>
+                        </tr>
+
+                        <tr align="middle">
+                            <td></td>
+                            <td>S8</td>
+                            <td>Chart Engine that can create Chart Objects in the backend.</td>
+                            <td>Functional</td>
+                            <td>Complete</td>
+                        </tr>
+
+                        <tr align="middle">
+                            <td>Could Haves</td>
+                            <td>C1</td>
+                            <td>Set Engine to support multiple databases.</td>
+                            <td>Functional</td>
+                            <td>Complete</td>
+                        </tr>
+                        <tr align="middle">
+                            <td></td>
+                            <td>C2</td>
+                            <td>Set Engine to generate a map of the storage system.</td>
+                            <td>Functional</td>
+                            <td>Complete</td>
+                        </tr>
+                        <tr align="middle">
+                            <td></td>
+                            <td>C3</td>
+                            <td>Set Engine to generate size tags for sets.</td>
+                            <td>Functional</td>
+                            <td>Complete</td>
+                        </tr>
+                        <tr align="middle">
+                            <td></td>
+                            <td>C4</td>
+                            <td>A tool to generate sample databases.</td>
+                            <td>Functional</td>
+                            <td>Complete</td>
+                        </tr>
+                        <tr align="middle">
+                            <td></td>
+                            <td>C5</td>
+                            <td>Provide a documentation introducing how to use the API.</td>
+                            <td>Functional</td>
+                            <td>Complete</td>
+                        </tr>
+                        <tr align="middle">
+                            <td></td>
+                            <td>C6</td>
+                            <td>Automated emailing system for the Set Engine.</td>
+                            <td>Functional</td>
+                            <td>Complete</td>
+                        </tr>
+                        <tr align="middle">
+                            <td></td>
+                            <td>C7</td>
+                            <td>Experimenting with different solutions after main solution is implemented.</td>
+                            <td>Non-Functional</td>
+                            <td>Complete</td>
+                        </tr>
+                        <tr align="middle">
+                            <td></td>
+                            <td>C8</td>
+                            <td>Unit Testing.</td>
+                            <td>Functional</td>
+                            <td>Complete</td>
+                        </tr>
+
+                        <tr align="middle">
+                            <td>Won't Haves</td>
+                            <td>W1</td>
+                            <td>The project must not be developed using .NET 4.0 or below.</td>
+                            <td>Non-Functional</td>
+                            <td>Not Complete</td>
+                        </tr>
+                        <tr align="middle">
+                            <td></td>
+                            <td>W2</td>
+                            <td>The project must not use technology that is depreciated.</td>
+                            <td>Non-Functional</td>
+                            <td>Not Complete</td>
+                        </tr>
+                        <tr align="middle">
+                            <td></td>
+                            <td>W3</td>
+                            <td>The project must not use only one method of approach.</td>
+                            <td>Non-Functional</td>
+                            <td>Not Complete</td>
+                        </tr>
                     </table>
                 </div>
-                </p>
             </section>
 
             <section id="useCases">
@@ -377,9 +438,9 @@
                 <p>We developed use cases that predict typical event paths that could happen when developers use our
                     API. (See Figure 4)</p>
                 <div align="middle">
-                    <div style="width: 750px">
-                        <img src="images/UseCases/useCase1.png" width="350" height="250">
-                        <img src="images/UseCases/useCase2.png" width="350" height="250">
+                    <div style="width: 900px">
+                        <img src="images/UseCases/useCase1.png" width="420" height="325">
+                        <img src="images/UseCases/useCase2.png" width="420" height="325">
                     </div>
                     <p>
                         Figure 4: Use case diagrams
@@ -394,11 +455,14 @@
                 <p>After working closely with Team 1 we considered the various parties whom would be interested to use
                     the API. From the meetings with Team 1 and SIMS we have created personas of people who would
                     show interest in the API.</p>
-                <p>Persona 1</p>
-                <img src="images/p1.png" width="800" height="550">
-                <p></p>
-                <p>Persona 2</p>
-                <img src="images/p2.png" width="800" height="550">
+                <div align="middle">
+                    <p>Persona 1</p>
+                    <img src="images/p1.png" width="800" height="550">
+                    <p></p>
+                    <p>Persona 2</p>
+                    <img src="images/p2.png" width="800" height="550">
+                </div>
+                <hr size="30">
             </section>
 
         </div>
