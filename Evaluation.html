@@ -1177,12 +1177,35 @@
                     <li>
                         <div>
                             <h3>Lazy Evaluation</h3>
-                            <p>One of the possible areas for improvement in the future is to implement lazy evaluation
-                                of
-                                charts. This is
-                                where we send the frontend the minimum amount of information to create a chart and then
-                                only
-                                load the necessary chart data if the user chooses to interact with the chart.</p>
+                            <p>Another future development which can help make the data delivery faster and more
+                                efficient, would be the introduction of a lazy data delivery system. The idea behind
+                                this would be that only the data that is actually needed at that point in time would be
+                                sent across to the client’s web browser.
+
+                                For example, let’s say the client requests the data set “all students with the property
+                                gender”, with a view of plotting a bar chart that showcases how many female against how
+                                many male students the school(s) have. Bearing in mind that this could be data from
+                                hundreds of schools, this would be a very large Json string to return. With lazy data
+                                return, the values first returned would literally be just the ratios needed to plot the
+                                bar chart (i.e. what our Chart Engine is doing now). Let’s then say that the client want
+                                to view the actual student “within” the male subset of students. Instead of returning
+                                the whole subset which could consist of thousands of students, the lazy system could
+                                return only as many students as the screen/canvas area can fit at that moment, caching
+                                the rest on the server for later delivery.
+                            </p>
+                        </div>
+                    </li>
+                    <li>
+                        <div>
+                            <h3>User Authentication</h3>
+                            <p>
+                                Because this is an education project, which has the potential to handle actual data from
+                                schools, privacy and security should be a big part of any future development. One really
+                                important thing to think about would be the access levels of different clients to the
+                                data on the system’s servers. For example, clients from a particular school should only
+                                be allowed to request data from their own schools, whereas local borough authorities
+                                only data from their own borough.
+                            </p>
                         </div>
                     </li>
                     <li>
